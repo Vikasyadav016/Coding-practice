@@ -57,6 +57,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
         if (!formData.fatherName) newErrors.fatherName = "Father's name is required";
         if (!formData.motherName) newErrors.motherName = "Mother's name is required";
         if (!formData.guardianMobile) newErrors.guardianMobile = "Guardian mobile is required";
+        if (!formData.guardianEmail) newErrors.guardianEmail = "Guardian email is required";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -65,6 +66,9 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
         const newErrors: any = {};
         if (!formData.state) newErrors.state = "State is required";
         if (!formData.district) newErrors.district = "District is required";
+        if (!formData.block) newErrors.block = "Block is required";
+        if (!formData.panchayat) newErrors.panchayat = "panchayat is required";
+        if (!formData.village) newErrors.village = "Village is required";
         if (!formData.pincode) newErrors.pincode = "Pincode is required";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -89,6 +93,11 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
     };
 
     const handlePrev = (step: string) => setActiveStep(step);
+
+
+    const handleFormFinalSubmit = () => {
+        alert(JSON.stringify)
+    }
 
 
     return (
@@ -517,7 +526,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                                     </Button>
                                     <Button
                                         variant="success"
-                                        onClick={() => alert("Form Submitted!")}
+                                        onClick={handleFormFinalSubmit}
                                     >
                                         Submit
                                     </Button>
