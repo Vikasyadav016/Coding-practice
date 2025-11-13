@@ -5,11 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import PageWhereSeeOrUpdateDetails from './ReactJs/PracticeUIExamples/PageWhereUpdateDetails'
 import LandingPage from './Components/LandingPage/LandingPage';
+import SignInPage from './Components/SignIn/SignInForm';
 // import SelectPreferredLanguage from './ReactJs/PracticeUIExamples/SelectPreferredLanguage'
 // import MultiFieldsForm from './ReactJs/PracticeUIExamples/MultiFieldsForm'
 // import LoopsInJavascript from './JavaScript/JSFundamentals/Loops'
 // import ChangeFontSize from './ReactJs/PracticeUIExamples/FontSizeChanges'
 // import TypeConversion from './JavaScript/JSFundamentals/TypeConversion'
+import { Route, BrowserRouter as Router, Routes } from 'react-router';
 
 function App() {
   
@@ -22,7 +24,13 @@ function App() {
       {/* <SelectPreferredLanguage /> */}
       {/* <MultiFieldsForm /> */}
       {/* <PageWhereSeeOrUpdateDetails /> */}
-      <LandingPage />
+      
+       <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/signin" element={<SignInPage />} />
+      </Routes>
+    </Router>
     </>
   )
 }

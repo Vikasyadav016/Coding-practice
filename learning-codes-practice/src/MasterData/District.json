@@ -1,0 +1,44 @@
+{
+  "state": "Bihar",
+  "value": "Bihar",
+  "shortname": "BR",
+  "isActive": true,
+  "isDeleted": false,
+  "districts": [
+    {
+      "name": "Araria",
+      "value": "Araria",
+      "shortname": "AR",
+      "isActive": true,
+      "isDeleted": false
+    },
+    {
+      "name": "Arwal",
+      "value": "Arwal",
+      "shortname": "AW",
+      "isActive": true,
+      "isDeleted": false
+    },
+    {
+      "name": "Aurangabad",
+      "value": "Aurangabad",
+      "shortname": "AU",
+      "isActive": true,
+      "isDeleted": false
+    },
+    {
+      "name": "Banka",
+      "value": "Banka",
+      "shortname": "BA",
+      "isActive": true,
+      "isDeleted": false
+    },
+    {
+      "name": "Begusarai",
+      "value": "Begusarai",
+      "shortname": "BE",
+      "isActive": true,
+      "isDeleted": false
+    }
+  ]
+}
