@@ -27,9 +27,10 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
     return (
         <>
             <Button variant="primary" className="ms-3" onClick={handleShow}>Sign Up</Button>
-            <Modal show={show} onHide={handleClose} size="xl" centered>
-                <Modal.Header closeButton>
-                    <Modal.Title>Sign Up</Modal.Title>
+            <Modal show={show} size="xl" centered>
+                <Modal.Header className="d-flex justify-content-between align-items-center">
+                    <Modal.Title>Registration Form</Modal.Title>
+                    <Button variant="dark" onClick={handleClose}>X</Button>
                 </Modal.Header>
 
                 <Modal.Body>

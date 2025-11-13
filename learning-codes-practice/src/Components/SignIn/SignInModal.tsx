@@ -40,15 +40,12 @@ const SignInModal = ({ show, handleClose, handleShow, }: any) => {
         }));
     };
 
-
-
     return (
         <>
 
             <Button variant="primary" className="ms-3" onClick={handleShow}>Sign In</Button>
             <Modal
                 show={show}
-                onHide={handleClose}
                 size="lg"
                 centered
                 aria-labelledby="large-modal-title"
@@ -106,9 +103,24 @@ const SignInModal = ({ show, handleClose, handleShow, }: any) => {
                                 </a>
                             </div>
 
-                            <Button variant="primary" type="submit" className="w-100" onClick={handleSignInFunction}>
-                                Sign In
-                            </Button>
+                            <div className="d-flex w-100 gap-2">
+                                <Button
+                                    variant='dark'
+                                    type="button"
+                                    className="btn btn-dark w-50"
+                                    onClick={handleClose}
+                                >
+                                    Cancel
+                                </Button>
+                                <Button
+                                    type="submit"
+                                    className="btn btn-primary w-50"
+                                    onClick={handleSignInFunction}
+                                >
+                                    Sign In
+                                </Button>
+                            </div>
+
 
                             <div className="text-center mt-3">
                                 <span className="text-muted">
