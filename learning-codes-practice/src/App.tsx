@@ -1,7 +1,10 @@
 
 import './App.css'
-import "../node_modules/bootstrap/dist/css/bootstrap.css"
-import PageWhereSeeOrUpdateDetails from './ReactJs/PracticeUIExamples/PageWhereUpdateDetails'
+// import "../node_modules/bootstrap/dist/css/bootstrap.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// import PageWhereSeeOrUpdateDetails from './ReactJs/PracticeUIExamples/PageWhereUpdateDetails'
+import LandingPage from './Components/LandingPage/LandingPage';
 // import SelectPreferredLanguage from './ReactJs/PracticeUIExamples/SelectPreferredLanguage'
 // import MultiFieldsForm from './ReactJs/PracticeUIExamples/MultiFieldsForm'
 // import LoopsInJavascript from './JavaScript/JSFundamentals/Loops'
@@ -18,7 +21,8 @@ function App() {
       {/* <ChangeFontSize /> */}
       {/* <SelectPreferredLanguage /> */}
       {/* <MultiFieldsForm /> */}
-      <PageWhereSeeOrUpdateDetails />
+      {/* <PageWhereSeeOrUpdateDetails /> */}
+      <LandingPage />
     </>
   )
 }

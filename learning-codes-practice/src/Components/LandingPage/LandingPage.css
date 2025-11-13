@@ -1,0 +1,62 @@
+/* src/pages/LandingPage.css */
+
+.landing-page {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #007bff !important;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #007bff 40%, #6610f2 100%);
+  color: #fff;
+  padding-top: 80px;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+.hero-img {
+  max-width: 100%;
+}
+
+/* Courses Section */
+.courses h2 {
+  font-weight: 600;
+}
+.course-card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* About Section */
+.about img {
+  max-width: 90%;
+  border-radius: 10px;
+}
+.about h2 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+.footer {
+  background-color: #f8f9fa;
+  font-size: 0.9rem;
+  color: #555;
+}
