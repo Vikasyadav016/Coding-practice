@@ -1,4 +1,3 @@
-// src/components/SignupModal.tsx
 import React, { useState } from "react";
 import { Modal, Button, Accordion, Form, Row, Col } from "react-bootstrap";
 import State from "../../MasterData/State.json"
@@ -12,6 +11,7 @@ interface SignupModalProps {
 
 const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow }) => {
     const [activeStep, setActiveStep] = useState<string | null>("0");
+    const [errors, setErrors] = useState<any>({});
     const [formData, setFormData] = useState<any>({
         name: "",
         email: "",
@@ -36,12 +36,58 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
         termsAccepted: false
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement> | any) => {
         const { name, value } = e.target;
         setFormData((prev: any) => ({ ...prev, [name]: value }));
+        setErrors((prev: any) => ({ ...prev, [name]: "" })); // clear error on change
     };
 
-    const handleNext = (step: string) => setActiveStep(step);
+    const validateStep1 = () => {
+        const newErrors: any = {};
+        if (!formData.name) newErrors.name = "Name is required";
+        if (!formData.email) newErrors.email = "Email is required";
+        if (!formData.aadhar) newErrors.aadhar = "Aadhar number is required";
+        if (!formData.mobile) newErrors.mobile = "Mobile number is required";
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const validateStep2 = () => {
+        const newErrors: any = {};
+        if (!formData.fatherName) newErrors.fatherName = "Father's name is required";
+        if (!formData.motherName) newErrors.motherName = "Mother's name is required";
+        if (!formData.guardianMobile) newErrors.guardianMobile = "Guardian mobile is required";
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const validateStep3 = () => {
+        const newErrors: any = {};
+        if (!formData.state) newErrors.state = "State is required";
+        if (!formData.district) newErrors.district = "District is required";
+        if (!formData.pincode) newErrors.pincode = "Pincode is required";
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+    const validateStep4 = () => {
+        const newErrors: any = {};
+        if (!formData.password) newErrors.password = "Password is required";
+        if (formData.password !== formData.confirmPassword)
+            newErrors.confirmPassword = "Passwords do not match";
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleNext = (nextStep: string) => {
+        let valid = false;
+        if (activeStep === "0") valid = validateStep1();
+        if (activeStep === "1") valid = validateStep2();
+        if (activeStep === "2") valid = validateStep3();
+        if (activeStep === "3") valid = validateStep4();
+
+        if (valid) setActiveStep(nextStep);
+    };
+
     const handlePrev = (step: string) => setActiveStep(step);
 
 
@@ -63,24 +109,28 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                                     <Row>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Name</Form.Label>
+                                                <Form.Label>Name<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="text"
                                                     name="name"
                                                     value={formData.name}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.name}
                                                 />
+                                                {errors.name && <div className="text-danger small mt-1">{errors.name}</div>}
                                             </Form.Group>
                                         </Col>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Email</Form.Label>
+                                                <Form.Label>Email<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="email"
                                                     name="email"
                                                     value={formData.email}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.email}
                                                 />
+                                                {errors.email && <div className="text-danger small mt-1">{errors.email}</div>}
                                             </Form.Group>
                                         </Col>
                                     </Row>
@@ -88,24 +138,28 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                                     <Row>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Aadhar</Form.Label>
+                                                <Form.Label>Aadhar<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="text"
                                                     name="aadhar"
                                                     value={formData.aadhar}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.aadhar}
                                                 />
+                                                {errors.aadhar && <div className="text-danger small mt-1">{errors.aadhar}</div>}
                                             </Form.Group>
                                         </Col>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Mobile</Form.Label>
+                                                <Form.Label>Mobile<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="text"
                                                     name="mobile"
                                                     value={formData.mobile}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.mobile}
                                                 />
+                                                {errors.mobile && <div className="text-danger small mt-1">{errors.mobile}</div>}
                                             </Form.Group>
                                         </Col>
                                     </Row>
@@ -124,13 +178,15 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                                     <Row>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Father Name</Form.Label>
+                                                <Form.Label>Father Name<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="text"
                                                     name="fatherName"
                                                     value={formData.fatherName}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.fatherName}
                                                 />
+                                                {errors.fatherName && <div className="text-danger small mt-1">{errors.fatherName}</div>}
                                             </Form.Group>
                                         </Col>
                                         <Col md={6}>
@@ -149,24 +205,28 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                                     <Row>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Guardian Mobile</Form.Label>
+                                                <Form.Label>Guardian Mobile<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="text"
                                                     name="guardianMobile"
                                                     value={formData.guardianMobile}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.guardianMobile}
                                                 />
+                                                {errors.guardianMobile && <div className="text-danger small mt-1">{errors.guardianMobile}</div>}
                                             </Form.Group>
                                         </Col>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Guardian Email</Form.Label>
+                                                <Form.Label>Guardian Email<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="email"
                                                     name="guardianEmail"
                                                     value={formData.guardianEmail}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.guardianEmail}
                                                 />
+                                                {errors.guardianEmail && <div className="text-danger small mt-1">{errors.guardianEmail}</div>}
                                             </Form.Group>
                                         </Col>
                                     </Row>
@@ -189,34 +249,38 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                                     <Row>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>State</Form.Label>
+                                                <Form.Label>State<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     as="select"
                                                     name="state"
                                                     value={formData.state}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.state}
                                                 >
                                                     <option value="">Select State</option>
                                                     {State && State.state.map((state) => (
                                                         <option value={state.value}>{state.name}</option>
                                                     ))}
                                                 </Form.Control>
+                                                {errors.state && <div className="text-danger small mt-1">{errors.state}</div>}
                                             </Form.Group>
                                         </Col>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>District</Form.Label>
+                                                <Form.Label>District<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     as="select"
                                                     name="district"
                                                     value={formData.district}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.district}
                                                 >
                                                     <option value="">Select District</option>
                                                     {District && District.districts.map((district) => (
                                                         <option value={district.value}>{district.name}</option>
                                                     ))}
                                                 </Form.Control>
+                                                {errors.district && <div className="text-danger small mt-1">{errors.district}</div>}
                                             </Form.Group>
                                         </Col>
                                     </Row>
@@ -224,24 +288,28 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                                     <Row>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Block</Form.Label>
+                                                <Form.Label>Block<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="text"
                                                     name="block"
                                                     value={formData.block}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.block}
                                                 />
+                                                {errors.block && <div className="text-danger small mt-1">{errors.block}</div>}
                                             </Form.Group>
                                         </Col>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Panchayat</Form.Label>
+                                                <Form.Label>Panchayat<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="text"
                                                     name="panchayat"
                                                     value={formData.panchayat}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.panchayat}
                                                 />
+                                                {errors.panchayat && <div className="text-danger small mt-1">{errors.panchayat}</div>}
                                             </Form.Group>
                                         </Col>
                                     </Row>
@@ -249,13 +317,15 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                                     <Row>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Village</Form.Label>
+                                                <Form.Label>Village<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="text"
                                                     name="village"
                                                     value={formData.village}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.village}
                                                 />
+                                                {errors.village && <div className="text-danger small mt-1">{errors.village}</div>}
                                             </Form.Group>
                                         </Col>
                                         <Col md={6}>
@@ -310,13 +380,15 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                                         </Col>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Pincode</Form.Label>
+                                                <Form.Label>Pincode<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="text"
                                                     name="pincode"
                                                     value={formData.pincode}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.pincode}
                                                 />
+                                                {errors.pincode && <div className="text-danger small mt-1">{errors.pincode}</div>}
                                             </Form.Group>
                                         </Col>
                                     </Row>
@@ -339,24 +411,28 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                                     <Row>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Password</Form.Label>
+                                                <Form.Label>Password<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="password"
                                                     name="password"
                                                     value={formData.password}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.password}
                                                 />
+                                                {errors.password && <div className="text-danger small mt-1">{errors.password}</div>}
                                             </Form.Group>
                                         </Col>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Confirm Password</Form.Label>
+                                                <Form.Label>Confirm Password<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     type="password"
                                                     name="confirmPassword"
                                                     value={formData.confirmPassword}
                                                     onChange={handleChange}
+                                                    isInvalid={!!errors.confirmPassword}
                                                 />
+                                                {errors.confirmPassword && <div className="text-danger small mt-1">{errors.confirmPassword}</div>}
                                             </Form.Group>
                                         </Col>
                                     </Row>
@@ -413,6 +489,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                                         id="termsAndConditions"
                                         name="termsAccepted"
                                         checked={formData.termsAccepted}
+                                        isInvalid={!!errors.termsAccepted}
                                         onChange={(e) =>
                                             setFormData({
                                                 ...formData,
