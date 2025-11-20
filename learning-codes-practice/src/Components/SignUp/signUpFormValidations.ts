@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ApiMethods from "../../ApiMethods/ApiMethods";
+import BASE_URL from "../../config/config";
 
 const useSignUpForm = () => {
   const [activeStep, setActiveStep] = useState<string | null>("0");
@@ -94,6 +96,8 @@ const useSignUpForm = () => {
       if (!formData.termsAccepted) {
         alert("Please check terms and conditions");
       } else {
+        const apiResponse = ApiMethods.post(`${BASE_URL}v1/register`,formData)
+        console.log("apiResponse",apiResponse)
         alert("Success!");
         console.log("data", formData);
       }

@@ -9,6 +9,7 @@ connectDB();
 const app = express();
 
 const allowedOrigins = [
+  'https://fuzzy-barnacle-594555rw9q42v6gx-5008.app.github.dev/',
   'https://opulent-space-meme-x49xxxpjp9w2pp79-8081.app.github.dev',
   'https://opulent-space-meme-x49xxxpjp9w2pp79-5008.app.github.dev/',
   'https://opulent-space-meme-x49xxxpjp9w2pp79-8081.app.github.dev/',
@@ -42,7 +43,7 @@ app.use(express.json());
 // Routes
 app.use("/api/auth", require("./Routes/authRoutes"));
 // app.use("/api/tasks", require("./routes/taskRoutes"));
-app.use("/api/auth/knowlytics", require("./Routes/userRoutes"));
+app.use("/api/auth/", require("./Routes/userRoutes"));
 
 const PORT = process.env.PORT || 5008;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

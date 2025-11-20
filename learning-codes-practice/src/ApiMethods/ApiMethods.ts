@@ -31,7 +31,7 @@ apiClient.interceptors.response.use(
 );
 
 // Common API methods
-const commonApi = {
+const ApiMethods = {
   get: (url: string, params: any) => apiClient.get(url, { params }),
   post: (url: string, data: any) => apiClient.post(url, data),
   put: (url: string, data: any) => apiClient.put(url, data),
@@ -39,4 +39,4 @@ const commonApi = {
   patch: (url: string, data: any) => apiClient.patch(url, data),
 };
 
-export default commonApi;
+export default ApiMethods;
