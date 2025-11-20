@@ -16,7 +16,7 @@ const UserGurdianDetailsSchema = new Schema({
     mobile:{type: String, required: true}
 })
 const UserAddressDetailsSchema = new Schema({
-    area:{type: String, required: true},
+    area:{type: String, required: false},
     block:{type: String, required: true},
     district:{type: String, required: true},
     houseNo: {type: String, required: true},
@@ -46,3 +46,6 @@ const AppUserSchema = new Schema ({
 },{ timestamps: true })
 
 export default mongoose.model("AppUser", AppUserSchema);
+
+
+

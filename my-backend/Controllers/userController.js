@@ -1,4 +1,5 @@
-const UserDocument = require("../Models/UserModalNew");
+const AppUser = require("../Models/UserModalNew").default;
+
 
 const userRegistration = async (req, res) => {
   try {
@@ -25,19 +26,18 @@ const userRegistration = async (req, res) => {
       confirmPassword,
       termsAccepted,
     } = req.body;
-console.log("req.body",req.body)
-    const isEmailAvailable = await UserDocument.findOne({
+    const isEmailAvailable = await AppUser.findOne({
       "userPersonalDetails.email": email,
     });
-
+    
     if (isEmailAvailable) {
       return res.status(400).json({
         error: true,
         message: "Email already used.",
       });
     }
-
-    const isMobileAvailable = await UserDocument.findOne({
+   
+    const isMobileAvailable = await AppUser.findOne({
       "userPersonalDetails.mobile": mobile,
     });
 
@@ -48,7 +48,7 @@ console.log("req.body",req.body)
       });
     }
 
-    const isAadharAvailable = await UserDocument.findOne({
+    const isAadharAvailable = await AppUser.findOne({
       "userPersonalDetails.aadhar": aadhar,
     });
 
@@ -59,8 +59,8 @@ console.log("req.body",req.body)
       });
     }
 
-    const newUser = new UserDocument({
-      userType: "01", 
+    const newUser = new AppUser({
+      userType: "01",
       userPersonalDetails: {
         name,
         email,
@@ -97,7 +97,7 @@ console.log("req.body",req.body)
       termsAccepted
     });
 
-    await newUser.save();
+    // await newUser.save();
 
     res.status(201).json({
       error: false,

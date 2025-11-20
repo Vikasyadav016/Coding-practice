@@ -5,6 +5,11 @@ import BASE_URL from "../../config/config";
 const useSignUpForm = () => {
   const [activeStep, setActiveStep] = useState<string | null>("0");
   const [errors, setErrors] = useState<any>({});
+  const [popup, setPopup] = useState({
+    visible: false,
+    message: "",
+    type: "",
+  });
   const [formData, setFormData] = useState<any>({
     name: "",
     email: "",
@@ -34,7 +39,7 @@ const useSignUpForm = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev: any) => ({ ...prev, [name]: value }));
-    setErrors((prev: any) => ({ ...prev, [name]: "" })); 
+    setErrors((prev: any) => ({ ...prev, [name]: "" }));
   };
 
   const validateStep1 = () => {
@@ -91,17 +96,42 @@ const useSignUpForm = () => {
 
   const handlePrev = (step: string) => setActiveStep(step);
 
-  const handleFormFinalSubmit = () => {
+  const handleFormFinalSubmit = async () => {
     try {
       if (!formData.termsAccepted) {
-        alert("Please check terms and conditions");
+        setPopup({
+          visible: true,
+          message: "Please check terms and conditions.",
+          type: "error",
+        });
       } else {
-        const apiResponse = ApiMethods.post(`${BASE_URL}v1/register`,formData)
-        console.log("apiResponse",apiResponse)
-        alert("Success!");
-        console.log("data", formData);
+        const apiResponse: any = await ApiMethods.post(
+          `${BASE_URL}v1/register`,
+          formData
+        );
+        if (!apiResponse.error) {
+          setPopup({
+            visible: true,
+            message: apiResponse.message,
+            type: "success",
+          });
+          setFormData({})
+          setActiveStep("0")
+        } else {
+          setPopup({
+            visible: true,
+            message: apiResponse.message,
+            type: "error",
+          });
+        }
       }
-    } catch (error) {}
+    } catch (error: any) {
+      setPopup({
+        visible: true,
+        message: error.response.data.message,
+        type: "error",
+      });
+    }
   };
 
   return {
@@ -117,6 +147,8 @@ const useSignUpForm = () => {
     handleNext,
     handlePrev,
     handleFormFinalSubmit,
+    popup,
+    setPopup,
   };
 };
 export default useSignUpForm;

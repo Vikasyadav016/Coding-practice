@@ -3,6 +3,7 @@ import { Modal, Button, Accordion, Form, Row, Col } from "react-bootstrap";
 import State from "../../MasterData/State.json"
 import District from "../../MasterData/District.json"
 import useSignUpForm from "./signUpFormValidations";
+import PopupMessage from "../MessagePopUp/DynamicPopUpMessage";
 
 interface SignupModalProps {
     show: boolean;
@@ -21,6 +22,8 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
         handleNext,
         handlePrev,
         handleFormFinalSubmit,
+        popup,
+        setPopup
     } = useSignUpForm()
 
 
@@ -32,7 +35,16 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
                     <Modal.Title>Registration Form</Modal.Title>
                     <Button variant="dark" onClick={handleClose}>X</Button>
                 </Modal.Header>
-
+                <PopupMessage
+                    visible={popup.visible}
+                    message={popup.message}
+                    type={popup.type}
+                    width="300px"
+                    borderRadius="10px"
+                    position="top-right"
+                    onClose={() => setPopup({ ...popup, visible: false })}
+                    duration={2000}
+                />
                 <Modal.Body>
                     <Accordion activeKey={activeStep} alwaysOpen>
                         {/* Step 1 */}
