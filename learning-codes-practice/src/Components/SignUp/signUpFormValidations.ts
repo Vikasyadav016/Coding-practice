@@ -115,8 +115,8 @@ const useSignUpForm = () => {
             message: apiResponse.message,
             type: "success",
           });
-          setFormData({})
-          setActiveStep("0")
+          setFormData({});
+          setActiveStep("0");
         } else {
           setPopup({
             visible: true,

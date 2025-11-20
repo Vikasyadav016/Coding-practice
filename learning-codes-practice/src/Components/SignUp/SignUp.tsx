@@ -1,17 +1,14 @@
-import React from "react";
 import { Modal, Button, Accordion, Form, Row, Col } from "react-bootstrap";
 import State from "../../MasterData/State.json"
 import District from "../../MasterData/District.json"
 import useSignUpForm from "./signUpFormValidations";
 import PopupMessage from "../MessagePopUp/DynamicPopUpMessage";
+import { useDispatch, useSelector } from "react-redux";
+import { CloseSignUpModal, ShowSignUpModal } from "../../Redux/Actions";
 
-interface SignupModalProps {
-    show: boolean;
-    handleClose: () => void;
-    handleShow: () => void;
-}
-
-const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow }) => {
+const SignupModal = () => {
+     const show  = useSelector((state:any) => state.signUpModalOpen);
+     const dispath = useDispatch()
 
     const {
         activeStep,
@@ -23,17 +20,18 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, handleClose, handleShow
         handlePrev,
         handleFormFinalSubmit,
         popup,
-        setPopup
+        setPopup,
     } = useSignUpForm()
+
 
 
     return (
         <>
-            <Button variant="primary" className="ms-3" onClick={handleShow}>Sign Up</Button>
+            <Button variant="primary" className="ms-3" onClick={()=>dispath(ShowSignUpModal())}>Sign Up</Button>
             <Modal show={show} size="xl" centered>
                 <Modal.Header className="d-flex justify-content-between align-items-center">
                     <Modal.Title>Registration Form</Modal.Title>
-                    <Button variant="dark" onClick={handleClose}>X</Button>
+                    <Button variant="dark" onClick={()=>dispath(CloseSignUpModal())}>X</Button>
                 </Modal.Header>
                 <PopupMessage
                     visible={popup.visible}

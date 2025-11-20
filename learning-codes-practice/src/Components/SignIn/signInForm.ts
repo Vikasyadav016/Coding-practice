@@ -1,0 +1,65 @@
+import { useState } from "react";
+import ApiMethods from "../../ApiMethods/ApiMethods";
+import BASE_URL from "../../config/config";
+
+
+interface SignInField {
+  email: string;
+  password: string;
+}
+
+const useSignInForm = () => {
+  const [signInFields, setSignInFields] = useState<SignInField>({
+    email: "",
+    password: "",
+  });
+  const [showLoader, setShowLoader] = useState<boolean>(false);
+  const [popup, setPopup] = useState({
+    visible: false,
+    message: "",
+    type: "",
+  });
+
+  const handleSignInFunction = async (e: any) => {
+    try {
+    e.preventDefault();
+      setShowLoader(true);
+      if (!signInFields.email && !signInFields.password) {
+        setPopup({
+          visible: true,
+          message: "Credentials required",
+          type: "error",
+        });
+      } else {
+        const apiResponse = await ApiMethods.post(
+          `${BASE_URL}v1/login`,
+          signInFields
+        );
+        console.log("data", signInFields, apiResponse);
+      }
+      setShowLoader(false);
+    } catch (error) {
+      console.log("error", error);
+      setShowLoader(false);
+    }
+  };
+
+  const handleSignInChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setSignInFields((pre: any) => ({
+      ...pre,
+      [name]: value,
+    }));
+  };
+
+  return {
+    signInFields,
+    handleSignInFunction,
+    showLoader,
+    handleSignInChanges,
+    popup,
+    setPopup
+  };
+};
+
+export default useSignInForm;

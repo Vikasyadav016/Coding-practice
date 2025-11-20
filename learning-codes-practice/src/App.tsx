@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import PageWhereSeeOrUpdateDetails from './ReactJs/PracticeUIExamples/PageWhereUpdateDetails'
 import LandingPage from './Components/LandingPage/LandingPage';
-import SignInPage from './Components/SignIn/SignInForm';
 // import SelectPreferredLanguage from './ReactJs/PracticeUIExamples/SelectPreferredLanguage'
 // import MultiFieldsForm from './ReactJs/PracticeUIExamples/MultiFieldsForm'
 // import LoopsInJavascript from './JavaScript/JSFundamentals/Loops'
@@ -28,7 +27,6 @@ function App() {
        <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/signin" element={<SignInPage />} />
       </Routes>
     </Router>
     </>

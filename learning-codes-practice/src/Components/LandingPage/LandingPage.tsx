@@ -1,20 +1,10 @@
 import { Container, Row, Col, Button, Card, Navbar, Nav } from "react-bootstrap";
 import "./LandingPage.css";
-import { useState } from "react";
 import SignInModal from "../SignIn/SignInModal";
 import SignupModal from "../SignUp/SignUp";
 
 const LandingPage = () => {
-  const [show, setShow] = useState(false);
-  const [showSignUpModal, setShowSignUpModal] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-
-
-  const handleCloseSignUpModal = () => setShowSignUpModal(false);
-  const handleShowSignUpModal = () => setShowSignUpModal(true);
 
   return (
     <div className="landing-page">
@@ -29,8 +19,8 @@ const LandingPage = () => {
               <Nav.Link href="#courses">Courses</Nav.Link>
               <Nav.Link href="#about">About</Nav.Link>
               <Nav.Link href="#contact">Contact</Nav.Link>
-              <SignInModal show={show} handleClose={handleClose} handleShow={handleShow} />
-              <SignupModal show={showSignUpModal} handleClose={handleCloseSignUpModal} handleShow={handleShowSignUpModal} />
+              <SignInModal />
+              <SignupModal />
             </Nav>
           </Navbar.Collapse>
         </Container>

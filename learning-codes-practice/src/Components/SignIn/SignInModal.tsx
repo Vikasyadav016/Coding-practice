@@ -1,49 +1,21 @@
-import { useState } from 'react';
-import { Button, Card, Form, Modal } from 'react-bootstrap';
-import Loader from '../CommonLoader/Loader';
+import { Button, Card, Form, Modal } from "react-bootstrap";
+import useSignInForm from "./signInForm";
+import Loader from "../CommonLoader/Loader";
+import PopupMessage from "../MessagePopUp/DynamicPopUpMessage";
+import "./SignInPage.css"
+import { useDispatch, useSelector } from "react-redux";
+import { CloseSignInModal, ShowSignInModal } from "../../Redux/Actions";
 
-interface SignInField {
-    email: string;
-    password: string;
-}
+const SignInModal = () => {
+const dispath = useDispatch()
 
-const SignInModal = ({ show, handleClose, handleShow, }: any) => {
-    const [signInFields, setSignInFields] = useState<SignInField>({
-        email: '',
-        password: ''
-    });
-    const [errorMessage, setErrormessage] = useState<string>('')
-    const [showLoader, setShowLoader] = useState<boolean>(false);
+    const show  = useSelector((state:any) => state.signInModalOpen);
 
-    const handleSignInFunction = (e: any) => {
-        e.preventDefault()
-        try {
-            setShowLoader(true);
-            if (!signInFields.email && !signInFields.password) {
-                setErrormessage("Login Id/Email and Password is required.")
-            } else {
-                console.log("data", signInFields)
-            }
-            setShowLoader(false);
-        } catch (error) {
-            console.log("error", error)
-            setShowLoader(false);
-        }
-
-    }
-
-    const handleSignInChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setSignInFields((pre: any) => ({
-            ...pre,
-            [name]: value
-        }));
-    };
+    const { signInFields, showLoader, popup, handleSignInFunction, handleSignInChanges, setPopup } = useSignInForm()
 
     return (
         <>
-
-            <Button variant="primary" className="ms-3" onClick={handleShow}>Sign In</Button>
+            <Button variant="primary" className="ms-3" onClick={() => dispath(ShowSignInModal())}>Sign In</Button>
             <Modal
                 show={show}
                 size="lg"
@@ -52,6 +24,16 @@ const SignInModal = ({ show, handleClose, handleShow, }: any) => {
             >
                 <Modal.Body>
                     <Loader loading={showLoader} />
+                    <PopupMessage
+                        visible={popup.visible}
+                        message={popup.message}
+                        type={popup.type}
+                        width="300px"
+                        borderRadius="10px"
+                        position="top-right"
+                        onClose={() => setPopup({ ...popup, visible: false })}
+                        duration={2000}
+                    />
                     <Card.Body>
                         <div className="text-center mb-2">
                             <img
@@ -64,14 +46,8 @@ const SignInModal = ({ show, handleClose, handleShow, }: any) => {
                         </div>
 
                         <Form>
-                            <div className="text-center mt-3">
-                                <span style={{ color: 'red' }}>
-                                    {errorMessage}
-                                </span>
-                            </div>
-
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Id/Email Address</Form.Label>
+                                <Form.Label>Id/Email Address<span className="text-danger">*</span></Form.Label>
                                 <Form.Control
                                     type="email"
                                     placeholder="Enter your id/email"
@@ -82,7 +58,7 @@ const SignInModal = ({ show, handleClose, handleShow, }: any) => {
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
+                                <Form.Label>Password<span className="text-danger">*</span></Form.Label>
                                 <Form.Control
                                     type="password"
                                     placeholder="Enter your password"
@@ -108,7 +84,7 @@ const SignInModal = ({ show, handleClose, handleShow, }: any) => {
                                     variant='dark'
                                     type="button"
                                     className="btn btn-dark w-50"
-                                    onClick={handleClose}
+                                    onClick={()=>dispath(CloseSignInModal())}
                                 >
                                     Cancel
                                 </Button>
@@ -120,7 +96,6 @@ const SignInModal = ({ show, handleClose, handleShow, }: any) => {
                                     Sign In
                                 </Button>
                             </div>
-
 
                             <div className="text-center mt-3">
                                 <span className="text-muted">
