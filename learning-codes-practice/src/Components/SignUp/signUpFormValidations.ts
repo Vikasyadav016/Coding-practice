@@ -1,10 +1,14 @@
 import { useState } from "react";
 import ApiMethods from "../../ApiMethods/ApiMethods";
 import BASE_URL from "../../config/config";
+import { useDispatch, useSelector } from "react-redux";
+import { CloseSignUpModal, ShowSignUpModal } from "../../Redux/Actions";
 
 const useSignUpForm = () => {
   const [activeStep, setActiveStep] = useState<string | null>("0");
   const [errors, setErrors] = useState<any>({});
+  const show = useSelector((state: any) => state.signUpModalOpen);
+  const dispatch = useDispatch();
   const [popup, setPopup] = useState({
     visible: false,
     message: "",
@@ -96,6 +100,13 @@ const useSignUpForm = () => {
 
   const handlePrev = (step: string) => setActiveStep(step);
 
+  const handleShowSignUpModal = () => {
+    dispatch(ShowSignUpModal());
+  };
+  const handleCloseSignUpModal = () => {
+    dispatch(CloseSignUpModal());
+  };
+
   const handleFormFinalSubmit = async () => {
     try {
       if (!formData.termsAccepted) {
@@ -117,6 +128,7 @@ const useSignUpForm = () => {
           });
           setFormData({});
           setActiveStep("0");
+          handleCloseSignUpModal()
         } else {
           setPopup({
             visible: true,
@@ -138,6 +150,8 @@ const useSignUpForm = () => {
     activeStep,
     errors,
     formData,
+    show,
+    popup,
     setFormData,
     handleChange,
     validateStep1,
@@ -147,8 +161,9 @@ const useSignUpForm = () => {
     handleNext,
     handlePrev,
     handleFormFinalSubmit,
-    popup,
     setPopup,
+    handleShowSignUpModal,
+    handleCloseSignUpModal
   };
 };
 export default useSignUpForm;
