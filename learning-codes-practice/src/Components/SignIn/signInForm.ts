@@ -1,7 +1,8 @@
 import { useState } from "react";
 import ApiMethods from "../../ApiMethods/ApiMethods";
 import BASE_URL from "../../config/config";
-
+import { useDispatch, useSelector } from "react-redux";
+import { CloseSignInModal, ShowSignInModal } from "../../Redux/Actions";
 
 interface SignInField {
   email: string;
@@ -19,10 +20,19 @@ const useSignInForm = () => {
     message: "",
     type: "",
   });
+  const dispath = useDispatch();
+  const show = useSelector((state: any) => state.signInModalOpen);
+
+  const handleShowSignInModal = () => {
+    dispath(ShowSignInModal());
+  };
+  const handleCloseSignInModal = () => {
+    dispath(CloseSignInModal())
+  }
 
   const handleSignInFunction = async (e: any) => {
     try {
-    e.preventDefault();
+      e.preventDefault();
       setShowLoader(true);
       if (!signInFields.email && !signInFields.password) {
         setPopup({
@@ -54,11 +64,14 @@ const useSignInForm = () => {
 
   return {
     signInFields,
-    handleSignInFunction,
-    showLoader,
-    handleSignInChanges,
     popup,
-    setPopup
+    show,
+    showLoader,
+    handleSignInFunction,
+    handleSignInChanges,
+    setPopup,
+    handleShowSignInModal,
+    handleCloseSignInModal
   };
 };
 

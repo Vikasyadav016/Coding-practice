@@ -3,19 +3,16 @@ import useSignInForm from "./signInForm";
 import Loader from "../CommonLoader/Loader";
 import PopupMessage from "../MessagePopUp/DynamicPopUpMessage";
 import "./SignInPage.css"
-import { useDispatch, useSelector } from "react-redux";
-import { CloseSignInModal, ShowSignInModal } from "../../Redux/Actions";
+
 
 const SignInModal = () => {
-const dispath = useDispatch()
+    
 
-    const show  = useSelector((state:any) => state.signInModalOpen);
-
-    const { signInFields, showLoader, popup, handleSignInFunction, handleSignInChanges, setPopup } = useSignInForm()
+    const { signInFields, showLoader, popup,show, handleSignInFunction, handleSignInChanges, setPopup,handleShowSignInModal,handleCloseSignInModal } = useSignInForm()
 
     return (
         <>
-            <Button variant="primary" className="ms-3" onClick={() => dispath(ShowSignInModal())}>Sign In</Button>
+            <Button variant="primary" className="ms-3" onClick={handleShowSignInModal}>Sign In</Button>
             <Modal
                 show={show}
                 size="lg"
@@ -84,7 +81,7 @@ const dispath = useDispatch()
                                     variant='dark'
                                     type="button"
                                     className="btn btn-dark w-50"
-                                    onClick={()=>dispath(CloseSignInModal())}
+                                    onClick={handleCloseSignInModal}
                                 >
                                     Cancel
                                 </Button>
