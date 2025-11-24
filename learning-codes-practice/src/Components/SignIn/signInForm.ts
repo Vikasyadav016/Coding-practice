@@ -3,6 +3,8 @@ import ApiMethods from "../../ApiMethods/ApiMethods";
 import BASE_URL from "../../config/config";
 import { useDispatch, useSelector } from "react-redux";
 import { CloseSignInModal, ShowSignInModal } from "../../Redux/Actions";
+import { AuthService } from "../../Services/authServices";
+import { useNavigate } from "react-router";
 
 interface SignInField {
   email: string;
@@ -21,14 +23,15 @@ const useSignInForm = () => {
     type: "",
   });
   const dispath = useDispatch();
+  const navigate = useNavigate();
   const show = useSelector((state: any) => state.signInModalOpen);
 
   const handleShowSignInModal = () => {
     dispath(ShowSignInModal());
   };
   const handleCloseSignInModal = () => {
-    dispath(CloseSignInModal())
-  }
+    dispath(CloseSignInModal());
+  };
 
   const handleSignInFunction = async (e: any) => {
     try {
@@ -41,11 +44,24 @@ const useSignInForm = () => {
           type: "error",
         });
       } else {
-        const apiResponse = await ApiMethods.post(
+        const apiResponse: any = await ApiMethods.post(
           `${BASE_URL}v1/login`,
           signInFields
         );
-        console.log("data", signInFields, apiResponse);
+        if (!apiResponse.error) {
+          AuthService.saveAuthData(
+            apiResponse.accessToken,
+            apiResponse.refreshToken,
+            apiResponse.user
+          );
+          navigate("/app");
+          setPopup({
+            visible: true,
+            message: apiResponse?.message,
+            type: "success",
+          });
+        }
+        console.log("data", apiResponse);
       }
       setShowLoader(false);
     } catch (error) {
@@ -71,7 +87,7 @@ const useSignInForm = () => {
     handleSignInChanges,
     setPopup,
     handleShowSignInModal,
-    handleCloseSignInModal
+    handleCloseSignInModal,
   };
 };
 

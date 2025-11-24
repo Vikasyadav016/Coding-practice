@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Register route
 router.post("/v1/register", userRegistration);
-router.get("/v1/login",userLogin)
+router.post("/v1/login",userLogin)
 
 router.post("/test",testApi)
 

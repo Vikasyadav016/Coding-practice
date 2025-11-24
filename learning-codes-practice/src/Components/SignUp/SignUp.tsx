@@ -85,6 +85,8 @@ const SignupModal = () => {
                                                     name="aadhar"
                                                     value={formData.aadhar}
                                                     onChange={handleChange}
+                                                    maxLength={12}
+                                                    minLength={12}
                                                     isInvalid={!!errors.aadhar}
                                                 />
                                                 {errors.aadhar && <div className="text-danger small mt-1">{errors.aadhar}</div>}
@@ -97,6 +99,8 @@ const SignupModal = () => {
                                                     type="text"
                                                     name="mobile"
                                                     value={formData.mobile}
+                                                    maxLength={10}
+                                                minLength={10}
                                                     onChange={handleChange}
                                                     isInvalid={!!errors.mobile}
                                                 />
@@ -152,6 +156,8 @@ const SignupModal = () => {
                                                     name="guardianMobile"
                                                     value={formData.guardianMobile}
                                                     onChange={handleChange}
+                                                    maxLength={10}
+                                                    minLength={10}
                                                     isInvalid={!!errors.guardianMobile}
                                                 />
                                                 {errors.guardianMobile && <div className="text-danger small mt-1">{errors.guardianMobile}</div>}

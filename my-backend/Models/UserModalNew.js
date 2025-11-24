@@ -25,11 +25,12 @@ const UserAddressDetailsSchema = new Schema({
     pincode: {type: String, required: true},
     state: {type: String, required: true},
     village:{type: String, required: true},
-    ward:{type: String, required: true}
+    ward:{type: String, required: false}
 })
 const UserSecurityDetailsSchema = new Schema({
     password:{type: String, required: true},
     confirmPassword:{type: String, required: true},
+    refreshToken: { type: String, default: null },
 })
 
 const AppUserSchema = new Schema ({

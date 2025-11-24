@@ -1,5 +1,7 @@
 const bcrypt = require("bcryptjs");
+const { generateAccessToken, generateRefreshToken } = require("../Utils/token");
 const AppUser = require("../Models/UserModalNew").default;
+
 
 const userRegistration = async (req, res) => {
   try {
@@ -114,27 +116,46 @@ const userRegistration = async (req, res) => {
 };
 
 const userLogin = async (req, res) => {
-  try{
-    const {email, password} = req.body;
-     const isUserAvailbale = await AppUser.findOne({
-      "userPersonalDetails.email": email,
-      "userSecurityDetails.password": password,
-    }); 
+  try {
+    const { email, password } = req.body;
 
-    if(!isUserAvailbale){
-      return res.status(400).json({
-        error: true,
-        message: "Login credential do not match."
-      })
+    const user = await AppUser.findOne({
+      "userPersonalDetails.email": email,
+    });
+
+    if (!user) {
+      return res.status(401).json({ error: true, message: "Invalid credentials" });
     }
 
-  }catch(err){
-    console.error(err);
-    res.status(500).json({
-      error: true,
-      message: "Server error.",
+    const match = await bcrypt.compare(password, user.userSecurityDetails.password);
+    if (!match) {
+      return res.status(401).json({ error: true, message: "Invalid credentials" });
+    }
+
+    const accessToken = generateAccessToken(user);
+    const refreshToken = generateRefreshToken(user);
+
+    user.userSecurityDetails.refreshToken = refreshToken;
+    await user.save();
+
+    res.status(200).json({
+      error: false,
+      message: "Login successful",
+      accessToken,
+      refreshToken,
+      user: {
+        id: user._id,
+        name: user.userPersonalDetails.name,
+        email: user.userPersonalDetails.email
+      }
     });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: true, message: "Server error" });
   }
-}
+};
+
+
 
 module.exports = { userRegistration,userLogin };

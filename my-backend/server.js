@@ -9,11 +9,7 @@ connectDB();
 const app = express();
 
 const allowedOrigins = [
-  'https://fuzzy-barnacle-594555rw9q42v6gx-5008.app.github.dev/',
-  'https://opulent-space-meme-x49xxxpjp9w2pp79-8081.app.github.dev',
-  'https://opulent-space-meme-x49xxxpjp9w2pp79-5008.app.github.dev/',
-  'https://opulent-space-meme-x49xxxpjp9w2pp79-8081.app.github.dev/',
-  'https://opulent-space-meme-x49xxxpjp9w2pp79-8081.app.github.dev/',
+  "https://fuzzy-barnacle-594555rw9q42v6gx-5008.app.github.dev/"
 //   'http://localhost:3000', // for local dev
 ];
 
