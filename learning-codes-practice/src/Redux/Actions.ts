@@ -15,3 +15,5 @@ export const ShowSignUpModal = () => ({
 export const CloseSignUpModal = () => ({
   type: ActionTypes.CLOSE_SIGNUP_MODAL
 });
+
+

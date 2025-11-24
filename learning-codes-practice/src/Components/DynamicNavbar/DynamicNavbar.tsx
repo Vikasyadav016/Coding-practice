@@ -1,5 +1,7 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { UserLoggedOut } from "../../Redux/LoginLogout/Actions";
 
 const DynamicNavbar = ({
   brand = "MyApp",
@@ -8,6 +10,8 @@ const DynamicNavbar = ({
   variant = "dark",
   bg = "dark",
 }) => {
+  const dispatch = useDispatch()
+  
   return (
     <div className="landing-page">
     <Navbar collapseOnSelect expand="lg" bg={bg} className="shadow-sm" variant={variant} fixed="top">
@@ -41,6 +45,7 @@ const DynamicNavbar = ({
               </NavLink>
             ))}
           </Nav>
+          <Button onClick={()=>dispatch(UserLoggedOut())}>Logout</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
