@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/dynamic-routes" element={<DynamicNavbarTest />} />
-          <Route path="/app" element={<AuthorizedLayout />}>
+          <Route path="/dashboard" element={<AuthorizedLayout />}>
             <Route index element={<Dashboard />} />      
             {/* <Route path="users" element={<UsersPage />} />  */}
           </Route>

@@ -54,7 +54,7 @@ const useSignInForm = () => {
             apiResponse.refreshToken,
             apiResponse.user
           );
-          navigate("/app");
+          navigate("/dashboard");
           dispath(CloseSignInModal())
           setPopup({
             visible: true,

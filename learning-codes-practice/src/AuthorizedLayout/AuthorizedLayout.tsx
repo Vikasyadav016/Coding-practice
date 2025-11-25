@@ -9,8 +9,8 @@ import PopupMessage from "../Components/MessagePopUp/DynamicPopUpMessage";
 import useSignInForm from "../Components/SignIn/signInForm";
 
 const links = [
-  { path: "/app", label: "Dashboard", icon: <DashboardIcon /> },
-  { path: "/app/users", label: "Users", icon: <UsersIcon /> },
+  { path: "/dashboard", label: "Dashboard", icon: <DashboardIcon /> },
+  { path: "/dashboard/users", label: "Users", icon: <UsersIcon /> },
 ];
 
 const AuthorizedLayout = () => {
