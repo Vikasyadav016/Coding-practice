@@ -11,6 +11,7 @@ const useLogout = () => {
     AuthService.logout();
     navigate("/");
     dispath(UserLoggedOut());
+
   };
   return { Logout };
 };

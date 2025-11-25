@@ -40,13 +40,13 @@ const ResponsiveSidebar: React.FC<SidebarProps> = ({ links }) => {
         paddingTop: "4rem",
       }}
     >
-      {/* Scrollable links */}
       <Nav
         className="flex-column"
         style={{ overflowY: "auto", flex: 1}}
       >
         {scrollableLinks.map((link) => (
           <NavLink
+          end
             key={link.path}
             to={link.path}
             className={({ isActive }) =>
@@ -66,13 +66,12 @@ const ResponsiveSidebar: React.FC<SidebarProps> = ({ links }) => {
           </NavLink>
         ))}
       </Nav>
-
-      {/* Fixed link at bottom */}
       <Nav
         className="flex-column"
-        style={{ marginTop: "auto", padding: "1rem 0" }}
+        style={{ marginTop: "auto",}}
       >
         <NavLink
+        end
           to={lastLink.path}
           className={({ isActive }) =>
             `d-flex align-items-center mb-2 p-2 rounded ${
@@ -90,8 +89,6 @@ const ResponsiveSidebar: React.FC<SidebarProps> = ({ links }) => {
           {!collapsed && <span className="ms-2">{lastLink.label}</span>}
         </NavLink>
       </Nav>
-
-      {/* Hover styles using inline CSS */}
       <style>
         {`
           .d-flex.align-items-center.p-2.rounded:hover {
