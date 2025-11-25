@@ -24,7 +24,7 @@ const useSignInForm = () => {
   });
   const dispath = useDispatch();
   const navigate = useNavigate();
-  const show = useSelector((state: any) => state.signInModalOpen);
+  const show = useSelector((state: any) => state.signInAndSignUp.signInModalOpen);
 
   const handleShowSignInModal = () => {
     dispath(ShowSignInModal());
@@ -55,6 +55,7 @@ const useSignInForm = () => {
             apiResponse.user
           );
           navigate("/app");
+          dispath(CloseSignInModal())
           setPopup({
             visible: true,
             message: apiResponse?.message,

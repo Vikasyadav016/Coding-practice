@@ -49,7 +49,7 @@ const ResponsiveSidebar: React.FC<SidebarProps> = ({ links }) => {
         borderRight: "1px solid #ddd",
         paddingTop: "1rem",
         zIndex: 1000,
-        marginTop: '2.6rem'
+        marginTop: '2.8rem'
       }}
     >
       <Nav className="flex-column">

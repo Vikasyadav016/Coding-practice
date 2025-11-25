@@ -7,7 +7,7 @@ export interface AuthState {
   user: any | null;
 }
 
-const storedUser = localStorage.getItem("authUser");
+const storedUser = AuthService.getAccessToken();
 
 export const initialAuthState: AuthState = {
   isLoggedIn: storedUser ? true : false,
@@ -24,7 +24,6 @@ const authReducer = (state = initialAuthState, action: any): AuthState => {
       };
 
     case LoginLogoutActionTypes.USER_LOGGEDOUT:
-      AuthService.logout
       return {
         ...state,
         isLoggedIn: false,

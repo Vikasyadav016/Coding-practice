@@ -7,7 +7,7 @@ import { CloseSignUpModal, ShowSignUpModal } from "../../Redux/Actions";
 const useSignUpForm = () => {
   const [activeStep, setActiveStep] = useState<string | null>("0");
   const [errors, setErrors] = useState<any>({});
-  const show = useSelector((state: any) => state.signUpModalOpen);
+  const show = useSelector((state: any) => state.signInAndSignUp.signUpModalOpen);
   const dispatch = useDispatch();
   const [popup, setPopup] = useState({
     visible: false,

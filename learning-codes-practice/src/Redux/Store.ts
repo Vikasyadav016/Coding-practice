@@ -1,8 +1,8 @@
 import { createStore } from "redux";
-import modalReducer from "./Reducers";
+import rootReducer from "./rootReducer";
 
 const store = createStore(
-  modalReducer,
+  rootReducer,
 );
 
 export default store;
