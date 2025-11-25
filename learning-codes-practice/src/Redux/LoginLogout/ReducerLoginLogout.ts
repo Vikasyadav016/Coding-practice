@@ -11,7 +11,7 @@ const storedUser = AuthService.getAccessToken();
 
 export const initialAuthState: AuthState = {
   isLoggedIn: storedUser ? true : false,
-  user: storedUser ? JSON.parse(storedUser) : null,
+  user: storedUser ? AuthService.getUser : null,
 };
 
 const authReducer = (state = initialAuthState, action: any): AuthState => {

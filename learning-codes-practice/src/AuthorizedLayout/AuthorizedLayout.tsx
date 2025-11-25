@@ -7,6 +7,10 @@ import ResponsiveSidebar, {
 import DynamicNavbarTest from "../ReactJs/PracticeUIExamples/DynamicNavbarTest";
 import PopupMessage from "../Components/MessagePopUp/DynamicPopUpMessage";
 import useSignInForm from "../Components/SignIn/signInForm";
+import { AuthService } from "../Services/authServices";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { ShowSignInModal } from "../Redux/Actions";
 
 const links = [
   { path: "/dashboard", label: "Dashboard", icon: <DashboardIcon /> },
@@ -16,11 +20,21 @@ const links = [
 const AuthorizedLayout = () => {
   const [collapsed, setCollapsed] = useState(window.innerWidth < 768);
   const { popup, setPopup } = useSignInForm();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleResize = () => setCollapsed(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const isLoggedIn = AuthService.isLoggedIn();
+    if (!isLoggedIn) {
+      navigate("/");
+      dispatch(ShowSignInModal());
+    }
   }, []);
 
   return (
