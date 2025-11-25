@@ -1,11 +1,19 @@
-import { Container, Row, Col, Button, Card, Navbar, Nav } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Card,
+  Navbar,
+  Nav,
+} from "react-bootstrap";
 import "./LandingPage.css";
 import SignInModal from "../SignIn/SignInModal";
 import SignupModal from "../SignUp/SignUp";
-
+import useLandingLage from "./landingPage";
 
 const LandingPage = () => {
-
+  const { handleExploreCourses,handleBecomeAnInstructor } = useLandingLage();
 
   return (
     <div className="landing-page">
@@ -32,13 +40,18 @@ const LandingPage = () => {
             <Col md={6}>
               <h1>Learn Anytime, Anywhere</h1>
               <p>
-                Join thousands of learners gaining new skills through online courses,
-                expert-led videos, and premium content.
+                Join thousands of learners gaining new skills through online
+                courses, expert-led videos, and premium content.
               </p>
-              <Button variant="primary" size="lg" className="me-3">
+              <Button
+                variant="primary"
+                size="lg"
+                className="me-3"
+                onClick={handleExploreCourses}
+              >
                 Explore Courses
               </Button>
-              <Button variant="outline-light" size="lg">
+              <Button variant="outline-light" size="lg" onClick={handleBecomeAnInstructor}>
                 Become an Instructor
               </Button>
             </Col>
@@ -57,20 +70,26 @@ const LandingPage = () => {
         <Container>
           <h2 className="text-center mb-5">Popular Courses</h2>
           <Row>
-            {["Web Development", "Data Science", "Graphic Design"].map((course, idx) => (
-              <Col md={4} key={idx}>
-                <Card className="course-card mb-4">
-                  <Card.Img variant="top" src={`https://picsum.photos/400/250?random=${idx}`} />
-                  <Card.Body>
-                    <Card.Title>{course}</Card.Title>
-                    <Card.Text>
-                      Learn {course.toLowerCase()} with hands-on projects and video tutorials.
-                    </Card.Text>
-                    <Button variant="primary">View Course</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
+            {["Web Development", "Data Science", "Graphic Design"].map(
+              (course, idx) => (
+                <Col md={4} key={idx}>
+                  <Card className="course-card mb-4">
+                    <Card.Img
+                      variant="top"
+                      src={`https://picsum.photos/400/250?random=${idx}`}
+                    />
+                    <Card.Body>
+                      <Card.Title>{course}</Card.Title>
+                      <Card.Text>
+                        Learn {course.toLowerCase()} with hands-on projects and
+                        video tutorials.
+                      </Card.Text>
+                      <Button variant="primary">View Course</Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              )
+            )}
           </Row>
         </Container>
       </section>
@@ -88,8 +107,9 @@ const LandingPage = () => {
             <Col md={6}>
               <h2>About Learnify</h2>
               <p>
-                Learnify is your go-to platform for online education. We bring together
-                learners and instructors from around the world to share knowledge and grow together.
+                Learnify is your go-to platform for online education. We bring
+                together learners and instructors from around the world to share
+                knowledge and grow together.
               </p>
               <Button variant="primary">Learn More</Button>
             </Col>
@@ -99,10 +119,11 @@ const LandingPage = () => {
 
       <footer className="footer py-4 text-center">
         <Container>
-          <p>&copy; {new Date().getFullYear()} Learnify. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Learnify. All rights reserved.
+          </p>
         </Container>
       </footer>
-
     </div>
   );
 };

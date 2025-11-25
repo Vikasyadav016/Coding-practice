@@ -1,0 +1,57 @@
+{
+    "ButtonValuesAndUrl": {
+        "landingNavigationBar": [
+            {
+                "label":"Sign In",
+                "value":"LN01",
+                "url":"/sign-in"
+            },
+            {
+                "label":"Sign Up",
+                "value":"LN02",
+                "url":"/sign-up"
+            }
+        ],
+        "landingPage": [
+            {
+                "label": "Explore Courses",
+                "value": "L01",
+                "url": "/dashboard/course"
+            },
+            {
+                "label": "Become an Instructor",
+                "value": "L02",
+                "url": "/dashboard/instructor"
+            },
+            {
+                "label": "View Course",
+                "value": "L03",
+                "url": "/dashboard/course/:id"
+            },
+            {
+                "label": "Learn More",
+                "value": "L04",
+                "url": "/learn-more-about"
+            }
+            
+        ],
+        "signInPopUp": [
+            {
+                "label": "Cancel",
+                "value": "SI01",
+                "url": "/cancel"
+            },
+            {
+                "label": "Sign In",
+                "value": "SI02",
+                "url": "/signIn"
+            }
+        ],
+        "signUpPopUp": [
+            {}
+        ],
+        "Dashboard": [
+            {}
+        ]
+    }
+}
