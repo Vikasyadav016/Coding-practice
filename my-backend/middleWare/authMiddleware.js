@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+import User from "../Models/UserModalNew";
 
 module.exports = function (req, res, next) {
   // Get token from header
@@ -18,3 +19,6 @@ module.exports = function (req, res, next) {
     res.status(401).json({ msg: "Token is not valid" });
   }
 };
+
+
+

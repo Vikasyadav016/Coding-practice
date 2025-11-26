@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
 
+
 dotenv.config();
 connectDB();
 const app = express();
@@ -38,8 +39,11 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", require("./Routes/authRoutes"));
-// app.use("/api/tasks", require("./routes/taskRoutes"));
 app.use("/api/auth/", require("./Routes/userRoutes"));
+app.use("/api/courses", require("./Routes/courseRoutes"));
+app.use("/api/instructors", require("./Routes/instructorRoutes"));
+app.use("/api/wishlist", require("./Routes/wishlistRoutes"));
+app.use("/api/cart", require("./Routes/cartRoutes"));
 
 const PORT = process.env.PORT || 5008;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

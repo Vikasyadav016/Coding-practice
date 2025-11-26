@@ -8,6 +8,14 @@ export const generateAccessToken = (user) => {
   );
 };
 
+
+// export default (id) => {
+//   return jwt.sign({ id }, process.env.JWT_SECRET, {
+//     expiresIn: "30d",
+//   });
+// };
+
+
 export const generateRefreshToken = (user) => {
   return jwt.sign(
     { id: user._id },

@@ -1,0 +1,17 @@
+const User = require("../Models/UserModalNew").default;
+
+const protect = async (req, res, next) => {
+  let token = req.headers.authorization?.split(" ")[1];
+
+  if (!token) return res.status(401).json({ msg: "Not authorized" });
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = await User.findById(decoded.id).select("-password");
+    next();
+  } catch {
+    return res.status(401).json({ msg: "Invalid token" });
+  }
+};
+
+module.exports = {protect}
