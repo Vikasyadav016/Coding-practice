@@ -1,0 +1,13 @@
+:root {
+  --bg: #fff;
+  --text: #000;
+  --shadow: 0 2px 5px rgba(0,0,0,0.1);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.dark {
+  --bg: #1c1c1c;
+  --text: #fff;
+  --shadow: 0 2px 5px rgba(255,255,255,0.05);
+  --shadow-hover: 0 4px 12px rgba(255,255,255,0.1);
+}
