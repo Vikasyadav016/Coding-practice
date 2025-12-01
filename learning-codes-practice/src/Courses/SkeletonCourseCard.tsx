@@ -1,4 +1,4 @@
-import "./Skeleton.css";
+// import "./Skeleton.css";
 
 const SkeletonCourseCard = () => {
   return (
