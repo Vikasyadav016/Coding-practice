@@ -11,7 +11,7 @@ export default function DynamicNavbarTest() {
   return (
     <>
       <DynamicNavbar
-        brand="MyWebsite"
+        brand="Learnify"
         // logo="/logo192.png"
         menuItems={menu}
         bg="primary"
