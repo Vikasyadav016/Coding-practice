@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { ShowSignInModal } from "../Redux/Actions";
 import { CourseIcon, DashboardIconNew, ProfileIcon, SettingsIcon } from "../SvgIcons/SVGIcons";
 import ResponsiveSidebar from "../Components/CommonSidebar/Sidebar";
+import { getMenuByRole } from "../Utilities/helperFunction";
 
 const links = [
   { path: "/dashboard", label: "Dashboard", icon: <DashboardIconNew /> },
@@ -18,14 +19,14 @@ const links = [
    { path: "/dashboard/users", label: "Users", icon: <ProfileIcon /> },
 ];
 
-const Intitution_Working = []
-const Instructor_Tutor_Working = []
-const User_Working = []
+
 const AuthorizedLayout = () => {
   const [collapsed, setCollapsed] = useState(window.innerWidth < 768);
   const { popup, setPopup } = useSignInForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const urerDetails = AuthService.getUser();
+  const menuLinks = getMenuByRole(urerDetails?.role);
 
   useEffect(() => {
     const handleResize = () => setCollapsed(window.innerWidth < 768);
@@ -40,13 +41,14 @@ const AuthorizedLayout = () => {
       dispatch(ShowSignInModal());
     }
   }, []);
+  
 
   return (
     <div>
       <DynamicNavbarTest />
 
       <div className="d-flex">
-        <ResponsiveSidebar links={links} />
+        <ResponsiveSidebar links={menuLinks} />
 
         <div
           className="flex-grow-1"

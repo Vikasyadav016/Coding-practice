@@ -5,7 +5,7 @@ import { Nav } from "react-bootstrap";
 interface LinkItem {
   path: string;
   label: string;
-  icon: JSX.Element;
+  icon: React.FC | (() => JSX.Element);
 }
 
 interface SidebarProps {
@@ -15,7 +15,6 @@ interface SidebarProps {
 const ResponsiveSidebar: React.FC<SidebarProps> = ({ links }) => {
   const [collapsed, setCollapsed] = useState(false);
 
-  // Collapse sidebar on small screens
   const handleResize = () => setCollapsed(window.innerWidth < 768);
 
   useEffect(() => {
@@ -24,8 +23,8 @@ const ResponsiveSidebar: React.FC<SidebarProps> = ({ links }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const scrollableLinks = links.slice(0, -1); // All except last
-  const lastLink = links[links.length - 1]; // Last link fixed at bottom
+  const scrollableLinks = links.slice(0, -1);
+  const lastLink = links[links.length - 1];
 
   return (
     <div
@@ -40,55 +39,48 @@ const ResponsiveSidebar: React.FC<SidebarProps> = ({ links }) => {
         paddingTop: "4rem",
       }}
     >
-      <Nav
-        className="flex-column"
-        style={{ overflowY: "auto", flex: 1}}
-      >
-        {scrollableLinks.map((link) => (
-          <NavLink
-          end
-            key={link.path}
-            to={link.path}
-            className={({ isActive }) =>
-              `d-flex align-items-center mb-2 p-2 rounded ${
-                isActive ? "bg-primary text-white" : "text-dark"
-              }`
-            }
-            style={{
-              textDecoration: "none",
-              transition: "all 0.2s",
-            }}
-          >
-            <span className="d-flex align-items-center justify-content-center">
-              {link.icon}
-            </span>
-            {!collapsed && <span className="ms-2">{link.label}</span>}
-          </NavLink>
-        ))}
+      <Nav className="flex-column" style={{ overflowY: "auto", flex: 1 }}>
+        {scrollableLinks.map((link) => {
+          const Icon = link.icon;
+          return (
+            <NavLink
+              end
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) =>
+                `d-flex align-items-center mb-2 p-2 rounded ${
+                  isActive ? "bg-primary text-white" : "text-dark"
+                }`
+              }
+              style={{ textDecoration: "none", transition: "all 0.2s" }}
+            >
+              <span className="d-flex align-items-center justify-content-center">
+                <Icon /> {/* Render SVG */}
+              </span>
+              {!collapsed && <span className="ms-2">{link.label}</span>}
+            </NavLink>
+          );
+        })}
       </Nav>
-      <Nav
-        className="flex-column"
-        style={{ marginTop: "auto",}}
-      >
+
+      <Nav className="flex-column" style={{ marginTop: "auto" }}>
         <NavLink
-        end
+          end
           to={lastLink.path}
           className={({ isActive }) =>
             `d-flex align-items-center mb-2 p-2 rounded ${
               isActive ? "bg-primary text-white" : "text-dark"
             }`
           }
-          style={{
-            textDecoration: "none",
-            transition: "all 0.2s",
-          }}
+          style={{ textDecoration: "none", transition: "all 0.2s" }}
         >
           <span className="d-flex align-items-center justify-content-center">
-            {lastLink.icon}
+            <lastLink.icon />
           </span>
           {!collapsed && <span className="ms-2">{lastLink.label}</span>}
         </NavLink>
       </Nav>
+
       <style>
         {`
           .d-flex.align-items-center.p-2.rounded:hover {
@@ -102,3 +94,4 @@ const ResponsiveSidebar: React.FC<SidebarProps> = ({ links }) => {
 };
 
 export default ResponsiveSidebar;
+

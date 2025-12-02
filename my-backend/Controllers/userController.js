@@ -137,7 +137,7 @@ const userLogin = async (req, res) => {
 
     user.userSecurityDetails.refreshToken = refreshToken;
     await user.save();
-
+console.log("userType")
     res.status(200).json({
       error: false,
       message: "Login successful",
@@ -146,7 +146,8 @@ const userLogin = async (req, res) => {
       user: {
         id: user._id,
         name: user.userPersonalDetails.name,
-        email: user.userPersonalDetails.email
+        email: user.userPersonalDetails.email,
+        role: user.userType
       }
     });
 

@@ -287,3 +287,21 @@ export const UsersIcon = () => (
   </svg>
 );
 
+
+export const InstituteIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M12 3L2 9v2h20V9L12 3z"
+      fill="currentColor"
+    />
+    <path
+      d="M4 11h2v8H4v-8zm7 0h2v8h-2v-8zm7 0h2v8h-2v-8z"
+      fill="currentColor"
+    />
+    <path
+      d="M2 21h20v-2H2v2z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
