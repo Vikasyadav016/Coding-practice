@@ -7,17 +7,9 @@ import { AuthService } from "../Services/authServices";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { ShowSignInModal } from "../Redux/Actions";
-import { CourseIcon, DashboardIconNew, ProfileIcon, SettingsIcon } from "../SvgIcons/SVGIcons";
 import ResponsiveSidebar from "../Components/CommonSidebar/Sidebar";
 import { getMenuByRole } from "../Utilities/helperFunction";
 
-const links = [
-  { path: "/dashboard", label: "Dashboard", icon: <DashboardIconNew /> },
-   { path: "/dashboard/course", label: "Course", icon: <CourseIcon /> },
-   { path: "/dashboard/instructor", label: "Chnage into Instructor", icon: <ProfileIcon /> },
-   { path: "/dashboard/setting", label: "Settings", icon: <SettingsIcon /> },
-   { path: "/dashboard/users", label: "Users", icon: <ProfileIcon /> },
-];
 
 
 const AuthorizedLayout = () => {
