@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import useLogout from "../../CommonLogout";
 import { AuthService } from "../../Services/authServices";
 import { useState } from "react";
+import { getRoleName } from "../../Utilities/helperFunction";
 
 const DynamicNavbar = ({
   brand = "MyApp",
@@ -75,7 +76,7 @@ const DynamicNavbar = ({
                 target={target}
                 overlay={
                   <Popover id="profile-popover" style={{ minWidth: "200px" }}>
-                    <Popover.Header as="h6">Profile</Popover.Header>
+                    <Popover.Header as="h6">Login as Role: - <strong>{getRoleName(userDetails.role)}</strong></Popover.Header>
                     <Popover.Body>
                       <div className="text-center">
                         <div

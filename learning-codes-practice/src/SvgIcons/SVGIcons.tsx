@@ -304,4 +304,59 @@ export const InstituteIcon = () => (
     />
   </svg>
 );
+export const AddNewIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M12 5v14M5 12h14"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+export const AddTeacherIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    {/* User Head */}
+    <circle cx="9" cy="8" r="4" stroke="currentColor" strokeWidth="2" />
+
+    {/* User Body */}
+    <path
+      d="M4 20v-1c0-3 2-5 5-5s5 2 5 5v1"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+
+    {/* Plus Symbol */}
+    <path
+      d="M18 8v6M21 11h-6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+export const WriteDocumentIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    {/* Document */}
+    <path
+      d="M6 3h8l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    {/* Pen */}
+    <path
+      d="M14 14l6-6m0 0l-2-2m2 2l-6 6l-2 1l1-2"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+
+
 

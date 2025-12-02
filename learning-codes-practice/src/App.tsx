@@ -6,6 +6,10 @@ import DynamicNavbarTest from './ReactJs/PracticeUIExamples/DynamicNavbarTest';
 import AuthorizedLayout from './AuthorizedLayout/AuthorizedLayout';
 import Dashboard from './Components/Dashboard/Dashboard';
 import CourseList from './Courses/CourseList';
+import AddTutorOrTeacher from './Pages/Institute/AddTutor/Addtutor';
+import InstituteDashboard from './Pages/Institute/InstituteDashboard';
+import "react-calendar-heatmap/dist/styles.css";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 function App() {
   
@@ -19,6 +23,10 @@ function App() {
           <Route path="/dashboard" element={<AuthorizedLayout />}>
             <Route index element={<Dashboard />} />      
             <Route path="course" element={<CourseList />} /> 
+          </Route>
+           <Route path="/institute-dashboard" element={<AuthorizedLayout />}>
+            <Route index element={<InstituteDashboard />} />      
+            <Route path="add/teacher/tutor" element={<AddTutorOrTeacher />} /> 
           </Route>
       </Routes>
     </Router>

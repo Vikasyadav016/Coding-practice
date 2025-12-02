@@ -1,6 +1,6 @@
 // STUDENT MENU (ROLE 01)
 
-import { AdminPanelIcon, CourseIcon, DashboardIconNew, InstituteIcon, ProfileIcon, SettingsIcon, UsersIcon } from "../SvgIcons/SVGIcons";
+import {  AddTeacherIcon, AdminPanelIcon, CourseIcon, DashboardIconNew, InstituteIcon, ProfileIcon, SettingsIcon, UsersIcon } from "../SvgIcons/SVGIcons";
 
 export const Student_Working = [
   { path: "/dashboard", label: "Dashboard", icon: DashboardIconNew  },
@@ -11,7 +11,8 @@ export const Student_Working = [
 
 // INSTITUTE MENU (ROLE 02)
 export const Institute_Working = [
-  { path: "/dashboard", label: "Dashboard", icon: DashboardIconNew },
+  { path: "/institute-dashboard", label: "Dashboard", icon: DashboardIconNew },
+  {path: "/institute-dashboard/add/teacher/tutor", label: "Add Tutor",icon: AddTeacherIcon},
   { path: "/dashboard/courses", label: "Manage Courses", icon: CourseIcon },
   { path: "/dashboard/instructors", label: "Manage Instructors", icon: ProfileIcon },
   { path: "/dashboard/students", label: "Manage Students", icon: UsersIcon },

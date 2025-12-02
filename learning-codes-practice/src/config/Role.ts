@@ -1,6 +1,6 @@
 import { Admin_Working, Default_Working, Institute_Working, Instructor_Tutor_Working, Student_Working, Super_Admin_Working } from "../SidebarMenu/SidebarMenuAccordingRole";
 
-export const roleType = {
+export const roleType: any = {
     "01": "Student",
     "02":"Institute",
     "03":"Tutor_Teacher",
