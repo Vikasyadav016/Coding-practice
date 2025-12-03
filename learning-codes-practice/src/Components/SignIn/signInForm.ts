@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CloseSignInModal, ShowSignInModal } from "../../Redux/Actions";
 import { AuthService } from "../../Services/authServices";
 import { useNavigate } from "react-router";
+import { getDashboardByRole } from "../../Utilities/helperFunction";
 
 interface SignInField {
   email: string;
@@ -25,6 +26,7 @@ const useSignInForm = () => {
   const dispath = useDispatch();
   const navigate = useNavigate();
   const show = useSelector((state: any) => state.signInAndSignUp.signInModalOpen);
+  
 
   const handleShowSignInModal = () => {
     dispath(ShowSignInModal());
@@ -34,6 +36,7 @@ const useSignInForm = () => {
   };
 
   const handleSignInFunction = async (e: any) => {
+    debugger
     try {
       e.preventDefault();
       setShowLoader(true);
@@ -54,7 +57,8 @@ const useSignInForm = () => {
             apiResponse.refreshToken,
             apiResponse.user
           );
-          navigate("/dashboard");
+          const path = getDashboardByRole(apiResponse.user.role);
+          navigate(path);
           dispath(CloseSignInModal())
           setPopup({
             visible: true,
