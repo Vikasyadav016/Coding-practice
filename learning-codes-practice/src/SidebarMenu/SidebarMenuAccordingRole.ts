@@ -1,7 +1,6 @@
-// STUDENT MENU (ROLE 01)
-
 import {  AddTeacherIcon, AdminPanelIcon, CourseIcon, DashboardIconNew, InstituteIcon, ProfileIcon, SettingsIcon, UsersIcon } from "../SvgIcons/SVGIcons";
 
+// STUDENT MENU (ROLE 01)
 export const Student_Working = [
   { path: "/dashboard", label: "Dashboard", icon: DashboardIconNew  },
   { path: "/dashboard/my-courses", label: "My Courses", icon: CourseIcon },
@@ -9,19 +8,29 @@ export const Student_Working = [
   { path: "/dashboard/settings", label: "Settings", icon: SettingsIcon },
 ];
 
-// INSTITUTE MENU (ROLE 02)
+// Institute MENU (ROLE 02)
 export const Institute_Working = [
   { path: "/institute-dashboard", label: "Dashboard", icon: DashboardIconNew },
   {path: "/institute-dashboard/add/teacher/tutor", label: "Add Tutor",icon: AddTeacherIcon},
-  { path: "/dashboard/courses", label: "Manage Courses", icon: CourseIcon },
-  { path: "/dashboard/instructors", label: "Manage Instructors", icon: ProfileIcon },
-  { path: "/dashboard/students", label: "Manage Students", icon: UsersIcon },
-  { path: "/dashboard/settings", label: "Settings", icon: SettingsIcon },
+  {
+    label: "Manage Courses",
+    icon: CourseIcon,
+    children: [
+      { path: "/institute-dashboard/manage-course/add", label: "Add Course" },
+      { path: "/institute-dashboard/manage-course/edit", label: "Edit Course" },
+      { path: "/institute-dashboard/manage-course/add-lesson", label: "Add Lesson" },
+      { path: "/institute-dashboard/manage-course/content", label: "Manage Course Content" },
+    ],
+  },
+  { path: "/institute-dashboard/instructors", label: "Manage Instructors", icon: ProfileIcon },
+  { path: "/institute-dashboard/students", label: "Manage Students", icon: UsersIcon },
+  { path: "/institute-dashboard/settings", label: "Settings", icon: SettingsIcon },
 ];
+
 
 // TUTOR / TEACHER MENU (ROLE 03)
 export const Instructor_Tutor_Working = [
-  { path: "/dashboard", label: "Dashboard", icon: DashboardIconNew },
+  { path: "/tutor-dashboard", label: "Dashboard", icon: DashboardIconNew },
   { path: "/dashboard/my-courses", label: "My Courses", icon: CourseIcon },
   { path: "/dashboard/create-course", label: "Create Course", icon: CourseIcon },
   { path: "/dashboard/settings", label: "Settings", icon: SettingsIcon },

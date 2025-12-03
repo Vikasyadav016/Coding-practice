@@ -274,7 +274,7 @@ const AddTutorOrTeacher: React.FC = () => {
           {/* NAME */}
           <Row>
             <Col md={6}>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-1">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control
                   name="firstName"
@@ -287,7 +287,7 @@ const AddTutorOrTeacher: React.FC = () => {
             </Col>
 
             <Col md={6}>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-1">
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control
                   name="lastName"
@@ -303,7 +303,7 @@ const AddTutorOrTeacher: React.FC = () => {
           {/* CONTACT */}
           <Row>
             <Col md={6}>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-1">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
@@ -317,7 +317,7 @@ const AddTutorOrTeacher: React.FC = () => {
             </Col>
 
             <Col md={6}>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-1">
                 <Form.Label>Phone</Form.Label>
                 <Form.Control
                   name="phone"
@@ -333,7 +333,7 @@ const AddTutorOrTeacher: React.FC = () => {
           {/* SUBJECT + EXPERIENCE */}
           <Row>
             <Col md={6}>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-1">
                 <Form.Label>Subject</Form.Label>
                 <Form.Control
                   name="subject"
@@ -346,7 +346,7 @@ const AddTutorOrTeacher: React.FC = () => {
             </Col>
 
             <Col md={6}>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-1">
                 <Form.Label>Experience (years)</Form.Label>
                 <Form.Control
                   type="number"
@@ -363,7 +363,7 @@ const AddTutorOrTeacher: React.FC = () => {
           {/* COUNTRY - STATE - CITY */}
           <Row>
             <Col md={4}>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-1">
                 <Form.Label>Country</Form.Label>
                 <Form.Select
                   name="country"
@@ -383,7 +383,7 @@ const AddTutorOrTeacher: React.FC = () => {
             </Col>
 
             <Col md={4}>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-1">
                 <Form.Label>State</Form.Label>
                 <Form.Select
                   name="state"
@@ -405,7 +405,7 @@ const AddTutorOrTeacher: React.FC = () => {
             </Col>
 
             <Col md={4}>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-1">
                 <Form.Label>City</Form.Label>
                 <Form.Select
                   name="city"
@@ -431,7 +431,7 @@ const AddTutorOrTeacher: React.FC = () => {
           </Row>
 
           {/* SKILLS AUTOSUGGEST */}
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-1">
             <Form.Label>Skills</Form.Label>
             <Form.Control
               placeholder="Type a skill"
@@ -474,7 +474,7 @@ const AddTutorOrTeacher: React.FC = () => {
           </Form.Group>
 
           {/* IMAGE UPLOAD */}
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-1">
             <Form.Label>Profile Image</Form.Label>
             <Form.Control type="file" accept="image/*" onChange={handleFileChange} />
             {previewImage && (
