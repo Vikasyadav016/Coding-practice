@@ -267,7 +267,7 @@ const AddTutorOrTeacher: React.FC = () => {
 
   return (
     <>
-      <Card className="shadow p-4 mt-4 mb-4">
+      <Card className="shadow p-4 mt-4 mb-4" style={{ marginLeft: "25px",marginRight:'25px', paddingTop: "50px", minHeight: "100vh" }}>
         <h3 className="mb-4 text-primary fw-semibold">Add New Tutor</h3>
 
         <Form onSubmit={handleSubmit}>

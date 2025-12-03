@@ -297,7 +297,7 @@ const NextDashboard: React.FC = () => {
 
   // ---------------- RENDER ----------------
   return (
-    <div className={darkMode ? "bg-dark text-light p-1" : "p-1"} >
+    <div className={darkMode ? "bg-dark text-light p-4" : "p-4"} style={{ marginLeft: "25px", paddingTop: "50px", minHeight: "100vh" }}>
       <ToastContainer position="top-right" autoClose={3000} />
 
       {/* HEADER */}
