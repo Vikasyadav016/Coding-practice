@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Card } from "react-bootstrap";
 
 const ChatWindow = ({ messages, activeStudent }: any) => {

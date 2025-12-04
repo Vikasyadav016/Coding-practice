@@ -1,0 +1,57 @@
+:root {
+  --primary: #702B1C;
+  --primary-hover: #8D3A28;
+  --incoming-bubble: #F4ECEA;
+  --outgoing-bubble: #702B1C;
+  --sidebar-bg: #F8F5F4;
+  --chat-bg: #F1EBE9;
+  --unread-bg: #E8B08B;
+  --text-dark: #3A1C16;
+  --text-light: #FFFFFF;
+  --border: #D8C7C4;
+}
+
+/* Layout */
+.chat-layout {
+  display: flex;
+  height: 100vh;
+  background: var(--chat-bg);
+}
+
+/* SIDEBAR */
+.chat-sidebar {
+  width: 330px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat Window */
+.chat-window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--chat-bg);
+}
+
+/* Chat Bubbles */
+.message {
+  max-width: 65%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.message.incoming {
+  background: var(--incoming-bubble);
+  color: var(--text-dark);
+  border: 1px solid var(--border);
+}
+
+.message.outgoing {
+  background: var(--outgoing-bubble);
+  color: white;
+  margin-left: auto;
+}

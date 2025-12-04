@@ -20,6 +20,7 @@ export const fetchStudents = () => [
 ];
 
 export const fetchMessages = (studentId: number) => {
+  console.log(studentId)
   return [
     {
       sender: "student",
