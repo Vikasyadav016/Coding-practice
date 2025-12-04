@@ -10,11 +10,11 @@ import AddTutorOrTeacher from './Pages/Institute/AddTutor/Addtutor';
 import InstituteDashboard from './Pages/Institute/InstituteDashboard';
 import "react-calendar-heatmap/dist/styles.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import TutorDashboard from './Pages/Teacher-Tutor/TutorDashboard';
 import ManageContent from './Pages/CourseManagement/ManageCourseContent';
 import AddCourse from './Pages/CourseManagement/AddCourse';
 import EditCourse from './Pages/CourseManagement/EditCourse';
 import AddLessonModal from './Pages/CourseManagement/AddLessionModal';
+import AnalyticsDashboard from './Pages/Teacher-Tutor/TutorAnalyticsDashboard';
 
 function App() {
   
@@ -38,8 +38,8 @@ function App() {
              <Route path='manage-course/add-lesson' element={<AddLessonModal />}/>
              <Route path='manage-course/content' element={<ManageContent />}/>
           </Route>
-          <Route path="//tutor-dashboard" element={<AuthorizedLayout />}>
-            <Route index element={<TutorDashboard />} />      
+          <Route path="/tutor-dashboard" element={<AuthorizedLayout />}>
+            <Route index element={<AnalyticsDashboard />} />      
           </Route>
       </Routes>
     </Router>

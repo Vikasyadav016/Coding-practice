@@ -1,49 +1,83 @@
-import React, { useState } from "react";
-import Step1_Info from "./Step1_Info";
-import Step2_Category from "./Step2_Category";
-import Step3_Pricing from "./Step3_Pricing";
-import Step4_Thumbnail from "./Step4_Thumbnail";
-import Step5_Curriculum from "./Step5_Curriculum";
-import Step6_Preview from "./Step6_Preview";
-import { Button, ProgressBar } from "react-bootstrap";
+import { useState } from "react";
+import { ProgressBar, Card } from "react-bootstrap";
+import Step1_BasicInfo from "./Setp1_BasicInfo";
+import Step2_Objectives from "./Step2_Objectives";
+import Step3_Content from "./Step3_Content";
+import Step4_Pricing from "./Step4_Pricing";
+import PreviewSidebar from "./PreviewSidebar";
+
+
+const steps = [
+  "Basic Info",
+  "Objectives",
+  "Content",
+  "Pricing",
+];
 
 const CourseWizard = () => {
-  const [step, setStep] = useState(1);
-  const [courseData, setCourseData] = useState<any>({});
+  const [step, setStep] = useState(0);
 
-  const nextStep = () => setStep(step + 1);
-  const prevStep = () => setStep(step - 1);
+  const [course, setCourse] = useState<any>({
+    title: "",
+    category: "",
+    level: "",
+    description: "",
+    thumbnail: "",
+    outcomes: [],
+    requirements: [],
+    chapters: [],
+    price: "",
+    discount: "",
+    status: "Draft",
+  });
 
-  const steps = [
-    <Step1_Info data={courseData} setData={setCourseData} />,
-    <Step2_Category data={courseData} setData={setCourseData} />,
-    <Step3_Pricing data={courseData} setData={setCourseData} />,
-    <Step4_Thumbnail data={courseData} setData={setCourseData} />,
-    <Step5_Curriculum data={courseData} setData={setCourseData} />,
-    <Step6_Preview data={courseData} />,
-  ];
+  const next = () => {
+    if (step < 3) setStep(step + 1);
+  };
+
+  const prev = () => {
+    if (step > 0) setStep(step - 1);
+  };
+
+  const handleSubmit = () => {
+    alert("Course Created Successfully 🎉");
+    console.log(course);
+  };
 
   return (
-    <div className="p-4">
-      <h3>Create Course Wizard</h3>
+    <div className="d-flex p-3">
+      {/* LEFT WIZARD CONTENT */}
+      <div className="flex-grow-1 pe-3">
 
-      <ProgressBar now={(step / 6) * 100} className="mb-4" />
+        <Card className="p-3 mb-3">
+          <h4 className="fw-bold">Create Course Wizard</h4>
+          <small className="text-muted">Step {step + 1} of 4 — {steps[step]}</small>
 
-      {steps[step - 1]}
+          <ProgressBar 
+            striped 
+            now={(step + 1) * 25} 
+            className="mt-3" 
+          />
+        </Card>
 
-      <div className="d-flex justify-content-between mt-4">
-        {step > 1 && (
-          <Button variant="secondary" onClick={prevStep}>
-            Back
-          </Button>
-        )}
-
-        {step < 6 ? (
-          <Button onClick={nextStep}>Next</Button>
-        ) : (
-          <Button variant="success">Publish Course</Button>
-        )}
+        <Card className="p-4">
+          {step === 0 && (
+            <Step1_BasicInfo course={course} setCourse={setCourse} next={next} />
+          )}
+          {step === 1 && (
+            <Step2_Objectives course={course} setCourse={setCourse} next={next} prev={prev} />
+          )}
+          {step === 2 && (
+            <Step3_Content course={course} setCourse={setCourse} next={next} prev={prev} />
+          )}
+          {step === 3 && (
+            <Step4_Pricing course={course} setCourse={setCourse} prev={prev} submit={handleSubmit} />
+          )}
+        </Card>
       </div>
+
+      {/* RIGHT PREVIEW SIDEBAR */}
+      <PreviewSidebar course={course} />
     </div>
   );
 };

@@ -51,33 +51,6 @@ const TutorDashboard: React.FC = () => {
 
   return (
     <div className="p-4" style={{ marginLeft: "25px" }}>
-      {/* HEADER */}
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="fw-bold">👨‍🏫 Tutor Dashboard</h2>
-        <button className="btn btn-primary shadow-sm">
-          <i className="bi bi-plus-circle"></i> Add New Course
-        </button>
-      </div>
-
-      {/* STAT CARDS */}
-      <div className="row g-4 mb-4">
-        {[
-          { title: "Total Courses", value: "12", icon: "book" },
-          { title: "Active Students", value: "320", icon: "people" },
-          { title: "Upcoming Classes", value: "5", icon: "calendar-event" },
-          { title: "Messages", value: "14", icon: "chat-left-text" }
-        ].map((card, index) => (
-          <div key={index} className="col-md-3 col-sm-6">
-            <div className="card shadow-sm border-0 p-3 text-center h-100">
-              <i className={`bi bi-${card.icon} display-6 text-primary`}></i>
-              <h5 className="mt-2">{card.title}</h5>
-              <h3 className="fw-bold">{card.value}</h3>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* CHARTS SECTION */}
       <div className="row g-4">
         {/* Course Progress */}
         <div className="col-lg-6">
