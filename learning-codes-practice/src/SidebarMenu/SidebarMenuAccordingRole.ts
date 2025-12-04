@@ -32,7 +32,7 @@ export const Institute_Working = [
 export const Instructor_Tutor_Working = [
   { path: "/tutor-dashboard", label: "Dashboard", icon: DashboardIconNew },
   { path: "/tutor-dashboard/course-wizard", label: "Courses Wizard", icon: CourseIcon },
-  { path: "/tutor-dashboard/my-courses", label: "My Courses", icon: CourseIcon },
+  { path: "/tutor-dashboard/courses", label: "My Courses", icon: CourseIcon },
   { path: "/tutor-dashboard/profile", label: "Settings", icon: SettingsIcon },
 ];
 

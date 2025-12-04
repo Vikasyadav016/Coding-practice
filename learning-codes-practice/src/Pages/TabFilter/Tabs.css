@@ -1,0 +1,48 @@
+.tabs-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.tabs-container {
+  display: flex;
+  gap: 15px;
+  position: relative;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.tab-btn:hover {
+  color: #007bff;
+}
+
+.tab-btn.active {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.tab-icon {
+  font-size: 16px;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: -2px;
+  height: 3px;
+  background: #007bff;
+  transition: 0.3s;
+  border-radius: 5px;
+}
