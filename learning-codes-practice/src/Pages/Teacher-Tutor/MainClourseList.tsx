@@ -2,15 +2,15 @@ import TeacherCourseList from "./TeacherCourseList";
 
 const MainCourseList = () => {
     const courses = [
+        { id: 1, title: "React Basics", description: "Learn React", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f" ,status: "Published"},
+        { id: 2, title: "Node.js", description: "Backend with Node", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f" },
+        { id: 3, title: "Design", description: "UI/UX Basics", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f" },
         { id: 1, title: "React Basics", description: "Learn React", image: "https://source.unsplash.com/random/400x300?tech" },
-        { id: 2, title: "Node.js", description: "Backend with Node", image: "https://source.unsplash.com/random/400x300?node" },
-        { id: 3, title: "Design", description: "UI/UX Basics", image: "https://source.unsplash.com/random/400x300?design" },
-        { id: 1, title: "React Basics", description: "Learn React", image: "https://source.unsplash.com/random/400x300?tech" },
-        { id: 2, title: "Node.js", description: "Backend with Node", image: "https://source.unsplash.com/random/400x300?node" },
-        { id: 3, title: "Design", description: "UI/UX Basics", image: "https://source.unsplash.com/random/400x300?design" },
-        { id: 1, title: "React Basics", description: "Learn React", image: "https://source.unsplash.com/random/400x300?tech" },
-        { id: 2, title: "Node.js", description: "Backend with Node", image: "https://source.unsplash.com/random/400x300?node" },
-        { id: 3, title: "Design", description: "UI/UX Basics", image: "https://source.unsplash.com/random/400x300?design" },
+        { id: 2, title: "Node.js", description: "Backend with Node", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f" },
+        { id: 3, title: "Design", description: "UI/UX Basics", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f" },
+        { id: 1, title: "React Basics", description: "Learn React", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f" },
+        { id: 2, title: "Node.js", description: "Backend with Node", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f" },
+        { id: 3, title: "Design", description: "UI/UX Basics", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f" },
 
         // ...add more
     ];

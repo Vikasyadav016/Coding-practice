@@ -4,10 +4,56 @@ import Tabs from "../TabFilter/Tabs";
 import SearchBar from "../TabFilter/SearchBar";
 import SortDropdown from "../TabFilter/SortDropdown";
 import SkeletonCourseCard from "../TabFilter/SkeletonCourseCard";
+import { Button } from "react-bootstrap";
+
+const dummyCourses = [
+  {
+    id: 1,
+    title: "React Basics",
+    description: "Learn React.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    status: "Published"
+  },
+  {
+    id: 2,
+    title: "Node.js API",
+    description: "Backend APIs.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    status: "Draft"
+  },
+  {
+    id: 3,
+    title: "UI/UX Design",
+    description: "Design fundamentals.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    status: "Archived"
+  },
+  {
+    id: 1,
+    title: "React Basics",
+    description: "Learn React.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    status: "Published"
+  },
+  {
+    id: 2,
+    title: "Node.js API",
+    description: "Backend APIs.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    status: "Draft"
+  },
+  {
+    id: 3,
+    title: "UI/UX Design",
+    description: "Design fundamentals.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    status: "Archived"
+  }
+];
 
 const TeacherCourseList = ({ fetchCoursesAPI, onView, onEdit, onDelete, onAdd }: any) => {
-    const [courses, setCourses] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [courses, setCourses] = useState<any>([]);
+    const [loading, setLoading] = useState(true);
 
     const [activeTab, setActiveTab] = useState("All");
     const [search, setSearch] = useState("");
@@ -23,7 +69,7 @@ const TeacherCourseList = ({ fetchCoursesAPI, onView, onEdit, onDelete, onAdd }:
     const loadCourses = async () => {
         setLoading(true);
         const data = await fetchCoursesAPI(); 
-        setCourses(data);
+        setCourses(dummyCourses || data);
         setLoading(false);
     };
 
@@ -62,9 +108,9 @@ const TeacherCourseList = ({ fetchCoursesAPI, onView, onEdit, onDelete, onAdd }:
             <div className="course-header">
                 <h2 className="course-title">My Listed Courses</h2>
 
-                <button className="add-btn" onClick={onAdd}>
+                <Button  onClick={onAdd}>
                      Add New Course
-                </button>
+                </Button>
             </div>
 
             <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
