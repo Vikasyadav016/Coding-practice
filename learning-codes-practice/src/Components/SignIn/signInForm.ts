@@ -26,7 +26,7 @@ const useSignInForm = () => {
   const dispath = useDispatch();
   const navigate = useNavigate();
   const show = useSelector((state: any) => state.signInAndSignUp.signInModalOpen);
-  
+
 
   const handleShowSignInModal = () => {
     dispath(ShowSignInModal());
@@ -69,7 +69,12 @@ const useSignInForm = () => {
         console.log("data", apiResponse);
       }
       setShowLoader(false);
-    } catch (error) {
+    } catch (error:any) {
+      setPopup({
+        visible: true,
+        message: error.response.data.message ||"Invalid Credentials",
+        type: "error",
+      });
       console.log("error", error);
       setShowLoader(false);
     }
