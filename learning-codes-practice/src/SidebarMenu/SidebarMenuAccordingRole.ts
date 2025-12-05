@@ -26,7 +26,7 @@ export const Institute_Working = [
     label: "Manage Subject",
     icon: ManageSubjectsIconB,
     children: [
-      { path: "/institute-dashboard/manage-subject/add", label: "Add Subject", icon: AddIcon },
+      { path: "/institute-dashboard/manage-subject/subject", label: "Add Subject", icon: AddIcon },
       { path: "/institute-dashboard/manage-subject/update", label: "Update Subject", icon: UpdateIcon },]
   },
   {

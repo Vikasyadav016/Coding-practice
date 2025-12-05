@@ -17,6 +17,7 @@ import AnalyticsDashboard from './Pages/Teacher-Tutor/TutorAnalyticsDashboard';
 import CourseWizard from './Pages/CreateCourseWizard/CourseWizard';
 import ProfileContainer from './Pages/UserProfile/ProfileContainer';
 import MainCourseList from './Pages/Teacher-Tutor/MainClourseList';
+import SubjectList from './Pages/Subject/SubjectList';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="add/teacher/tutor" element={<AddTutorOrTeacher />} />
             <Route path='manage-course/add' element={<AddCourse />} />
             <Route path='manage-course/edit' element={<EditCourse />} />
+            <Route path='manage-subject/subject' element={<SubjectList />} />
             <Route path='manage-course/add-lesson' element={<AddLessonModal />} />
             <Route path='manage-course/content' element={<ManageContent />} />
             <Route path="manage-tutor/add/teacher-tutor" element={<AddTutorOrTeacher />} />
