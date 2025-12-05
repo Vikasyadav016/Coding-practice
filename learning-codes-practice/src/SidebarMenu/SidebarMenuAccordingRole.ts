@@ -1,8 +1,8 @@
-import {  AddTeacherIcon, AdminPanelIcon, CourseIcon, DashboardIconNew, InstituteIcon, ProfileIcon, SettingsIcon, UsersIcon } from "../SvgIcons/SVGIcons";
+import { AddIcon, AddTeacherIcon, AdminPanelIcon, CourseIcon, DashboardIconNew, InstituteIcon, ManageSubjectsIconB, ProfileIcon, SettingsIcon, UpdateIcon, UsersIcon } from "../SvgIcons/SVGIcons";
 
 // STUDENT MENU (ROLE 01)
 export const Student_Working = [
-  { path: "/dashboard", label: "Dashboard", icon: DashboardIconNew  },
+  { path: "/dashboard", label: "Dashboard", icon: DashboardIconNew },
   { path: "/dashboard/my-courses", label: "My Courses", icon: CourseIcon },
   { path: "/dashboard/become-instructor", label: "Become Instructor", icon: ProfileIcon },
   { path: "/dashboard/profile", label: "Settings", icon: SettingsIcon },
@@ -11,18 +11,32 @@ export const Student_Working = [
 // Institute MENU (ROLE 02)
 export const Institute_Working = [
   { path: "/institute-dashboard", label: "Dashboard", icon: DashboardIconNew },
-  {path: "/institute-dashboard/add/teacher/tutor", label: "Add Tutor",icon: AddTeacherIcon},
+  { path: "/institute-dashboard/add/teacher/tutor", label: "Add Tutor", icon: AddTeacherIcon },
   {
     label: "Manage Courses",
     icon: CourseIcon,
     children: [
-      { path: "/institute-dashboard/manage-course/add", label: "Add Course" },
-      { path: "/institute-dashboard/manage-course/edit", label: "Edit Course" },
-      { path: "/institute-dashboard/manage-course/add-lesson", label: "Add Lesson" },
-      { path: "/institute-dashboard/manage-course/content", label: "Manage Course Content" },
+      { path: "/institute-dashboard/manage-course/add", label: "Add Course", icon: AddIcon },
+      { path: "/institute-dashboard/manage-course/edit", label: "Edit Course", icon: UpdateIcon },
+      { path: "/institute-dashboard/manage-course/add-lesson", label: "Add Lesson", icon: AddTeacherIcon },
+      { path: "/institute-dashboard/manage-course/content", label: "Manage Course Content", icon: AddTeacherIcon },
     ],
   },
-  { path: "/institute-dashboard/instructors", label: "Manage Instructors", icon: ProfileIcon },
+  {
+    label: "Manage Subject",
+    icon: ManageSubjectsIconB,
+    children: [
+      { path: "/institute-dashboard/manage-subject/add", label: "Add Subject", icon: AddIcon },
+      { path: "/institute-dashboard/manage-subject/update", label: "Update Subject", icon: UpdateIcon },]
+  },
+  {
+    label: "Manage Instructors",
+    icon: ProfileIcon,
+    children: [
+      { path: "/institute-dashboard/manage-tutor/add/teacher-tutor", label: "Add Tutor/Instructor", icon: AddIcon },
+      { path: "/institute-dashboard/manage-course/edit", label: "Update ", icon: UpdateIcon },
+    ]
+  },
   { path: "/institute-dashboard/students", label: "Manage Students", icon: UsersIcon },
   { path: "/institute-dashboard/profile", label: "Settings", icon: SettingsIcon },
 ];

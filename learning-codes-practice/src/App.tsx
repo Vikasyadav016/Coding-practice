@@ -38,6 +38,8 @@ function App() {
             <Route path='manage-course/edit' element={<EditCourse />} />
             <Route path='manage-course/add-lesson' element={<AddLessonModal />} />
             <Route path='manage-course/content' element={<ManageContent />} />
+            <Route path="manage-tutor/add/teacher-tutor" element={<AddTutorOrTeacher />} />
+            
             <Route path='profile' element={<ProfileContainer />} />
           </Route>
           <Route path="/tutor-dashboard" element={<AuthorizedLayout />}>

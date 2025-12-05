@@ -357,6 +357,92 @@ export const WriteDocumentIcon = () => (
   </svg>
 );
 
+// manage subject
+export const ManageSubjectsIconA = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    {/* Book */}
+    <path
+      d="M6 4h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M6 4v14"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+
+    {/* Gear */}
+    <circle
+      cx="17.5"
+      cy="12.5"
+      r="2"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <path
+      d="M17.5 9.5v1M17.5 15v1M14.5 12.5h1M20 12.5h1"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+export const ManageSubjectsIconB = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    {/* Subject lines */}
+    <path d="M4 6h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M4 12h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M4 18h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+
+    {/* Gear */}
+    <circle cx="18" cy="12" r="2" stroke="currentColor" strokeWidth="2" />
+    <path
+      d="M18 9.5v1M18 14.5v1M15 12h1M21 12h1"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+export const ManageSubjectsIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M4 6h14v4H4z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+    <path d="M4 12h14v4H4z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+    <path d="M4 18h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
+export const AddIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+    <path d="M12 8v8M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
+export const UpdateIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M12 20h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const DeleteIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M3 6h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M8 6v14h8V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M10 11v6M14 11v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
+
+
+
 
 
 
