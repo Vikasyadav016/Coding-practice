@@ -18,7 +18,7 @@ import CourseWizard from './Pages/CreateCourseWizard/CourseWizard';
 import ProfileContainer from './Pages/UserProfile/ProfileContainer';
 import MainCourseList from './Pages/Teacher-Tutor/MainClourseList';
 import SubjectList from './Pages/Subject/SubjectList';
-import SchemeTable from './JavaScript/Test/MultiLevelHeaderTable';
+// import SchemeTable from './JavaScript/Test/MultiLevelHeaderTable';
 import { LearningDashboard } from './CIWM/LearningDashboard';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-           <Route path="/sch" element={<SchemeTable />} />
+           {/* <Route path="/sch" element={<SchemeTable />} /> */}
           <Route path="/dashboard" element={<AuthorizedLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="course" element={<CourseList />} />
