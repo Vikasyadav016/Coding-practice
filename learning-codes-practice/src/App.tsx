@@ -21,7 +21,7 @@ import SubjectList from './Pages/Subject/SubjectList';
 // import SchemeTable from './JavaScript/Test/MultiLevelHeaderTable';
 import { LearningDashboard } from './CIWM/LearningDashboard';
 import { FundamentalJSContent } from './CIWM/JavaScript-Fundamental';
-
+import MicrotasksvsMacrotasks from './CIWM/JavaScript-Fundamental/Microtasks-vs-Macrotasks';
 function App() {
 
 
@@ -59,6 +59,8 @@ function App() {
             <Route index element={<LearningDashboard />} />
             <Route path='fundamental-js'>
               <Route index element={<FundamentalJSContent />} />
+              
+               <Route path='microtasks-macrotasks' element={<MicrotasksvsMacrotasks />} />
             </Route>
             <Route path='fundamental-react-js'>
               <Route index element={<FundamentalJSContent />} />

@@ -61,6 +61,7 @@ export const FundamentalJSContent = () => {
   const COLORS = ["#16A34A", "#FACC15", "#EF4444"];
 
   return (
+    <>
     <div style={container}>
       <h2 style={heading}>📊 {`Fundamental of ${isFundamentReactJs ? 'React Js' : 'Javascript'}`}</h2>
 
@@ -172,6 +173,7 @@ export const FundamentalJSContent = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

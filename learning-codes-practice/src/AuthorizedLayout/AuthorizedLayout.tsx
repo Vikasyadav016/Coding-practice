@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { ShowSignInModal } from "../Redux/Actions";
 import ResponsiveSidebar from "../Components/CommonSidebar/Sidebar";
 import { getMenuByRole } from "../Utilities/helperFunction";
+import Breadcrumb from "../Components/BreadCrumb/BreadCrumb";
 
 
 
@@ -38,10 +39,8 @@ const AuthorizedLayout = () => {
   return (
     <div>
       <DynamicNavbarTest />
-
       <div className="d-flex">
         <ResponsiveSidebar links={menuLinks} />
-
         <div
           className="flex-grow-1"
           style={{
@@ -50,6 +49,7 @@ const AuthorizedLayout = () => {
             transition: "margin-left 0.3s",
           }}
         >
+          <Breadcrumb />
           <Outlet />
         </div>
       </div>

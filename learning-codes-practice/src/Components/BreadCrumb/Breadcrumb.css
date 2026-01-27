@@ -1,0 +1,36 @@
+/* Breadcrumb.css */
+
+.breadcrumb {
+  margin-left: 30px;
+  font-size: 14px;
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow-x: auto; /* Scroll if too long */
+}
+
+.breadcrumb-container {
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Keep in single line */
+}
+
+.breadcrumb-link {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  margin: 0 5px;
+  color: #888;
+}
+
+.breadcrumb-current {
+  font-weight: bold;
+  color: #333;
+}
