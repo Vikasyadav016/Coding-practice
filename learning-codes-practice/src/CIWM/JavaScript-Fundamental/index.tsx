@@ -2,44 +2,47 @@ import { useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import { useNavigate } from "react-router-dom"; // For dynamic routing
 import type { CSSProperties } from "react";
+import jsContent from './JsFundamentalTopic.json'
+import reactContent from "../ReactJs-Fundamental/reactJsFundamentalTopic.json"
 
 export const FundamentalJSContent = () => {
+  const isFundamentReactJs = location.pathname.includes('fundamental-react-js')
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [filter, setFilter] = useState<"All" | "Completed" | "In Progress" | "Pending">("All");
   const [sortAsc, setSortAsc] = useState(true);
-
-  const topics = [
-    {
-      name: "Variables & Data Types",
-      status: "Completed",
-      progress: 100,
-      details: "Learn about let, const, var and primitive types.",
-      route: "/courses/variables",
-    },
-    {
-      name: "Functions",
-      status: "Completed",
-      progress: 100,
-      details: "Understand how functions work, arguments, return values.",
-      route: "/courses/functions",
-    },
-    {
-      name: "Hooks (useState)",
-      status: "In Progress",
-      progress: 50,
-      details: "React hooks for managing state inside functional components.",
-      route: "/courses/hooks",
-    },
-    {
-      name: "Props & Components",
-      status: "Pending",
-      progress: 0,
-      details: "Learn how to pass data via props and create reusable components.",
-      route: "/courses/props",
-    },
-  ];
+  const topics = isFundamentReactJs ? reactContent?.reactJsFundamentalContent : jsContent?.jsFundamentalContent
+  // const topics = [
+  //   {
+  //     name: "Variables & Data Types",
+  //     status: "Completed",
+  //     progress: 100,
+  //     details: "Learn about let, const, var and primitive types.",
+  //     route: "/courses/variables",
+  //   },
+  //   {
+  //     name: "Functions",
+  //     status: "Completed",
+  //     progress: 100,
+  //     details: "Understand how functions work, arguments, return values.",
+  //     route: "/courses/functions",
+  //   },
+  //   {
+  //     name: "Hooks (useState)",
+  //     status: "In Progress",
+  //     progress: 50,
+  //     details: "React hooks for managing state inside functional components.",
+  //     route: "/courses/hooks",
+  //   },
+  //   {
+  //     name: "Props & Components",
+  //     status: "Pending",
+  //     progress: 0,
+  //     details: "Learn how to pass data via props and create reusable components.",
+  //     route: "/courses/props",
+  //   },
+  // ];
 
   // Apply filter
   const filteredTopics = filter === "All" ? topics : topics.filter(t => t.status === filter);
@@ -59,7 +62,7 @@ export const FundamentalJSContent = () => {
 
   return (
     <div style={container}>
-      <h2 style={heading}>📊 Fundamental of Javascript</h2>
+      <h2 style={heading}>📊 {`Fundamental of ${isFundamentReactJs ? 'React Js' : 'Javascript'}`}</h2>
 
       {/* Pie Chart */}
       <div style={chartContainer}>

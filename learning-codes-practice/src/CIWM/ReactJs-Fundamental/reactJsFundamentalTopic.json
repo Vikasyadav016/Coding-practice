@@ -1,0 +1,32 @@
+{
+  "reactJsFundamentalContent": [
+    {
+      "name": "Introduction to React",
+      "status": "Completed",
+      "progress": 100,
+      "details": "Understand React architecture and JSX syntax.",
+      "route": "/courses/react/introduction"
+    },
+    {
+      "name": "Components & Props",
+      "status": "In Progress",
+      "progress": 50,
+      "details": "Learn how to create reusable components and pass data via props.",
+      "route": "/courses/react/components-props"
+    },
+    {
+      "name": "State Management with useState",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Learn how to manage component state using useState hook.",
+      "route": "/courses/react/use-state"
+    },
+    {
+      "name": "Lifecycle & useEffect",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Understand component lifecycle and side effects with useEffect hook.",
+      "route": "/courses/react/use-effect"
+    }
+  ]
+}

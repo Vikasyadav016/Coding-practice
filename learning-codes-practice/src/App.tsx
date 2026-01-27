@@ -60,7 +60,9 @@ function App() {
             <Route path='fundamental-js'>
               <Route index element={<FundamentalJSContent />} />
             </Route>
-            <Route path='fundamental-react-js' element={<MainCourseList />} />
+            <Route path='fundamental-react-js'>
+              <Route index element={<FundamentalJSContent />} />
+            </Route>
             <Route path='profile' element={<ProfileContainer />} />
           </Route>
         </Routes>

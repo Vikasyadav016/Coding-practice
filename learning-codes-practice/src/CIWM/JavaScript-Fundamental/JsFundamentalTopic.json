@@ -1,0 +1,123 @@
+{
+  "jsFundamentalContent": [
+    {
+      "name": "Variables & Data Types",
+      "status": "Completed",
+      "progress": 100,
+      "details": "Learn about let, const, var and primitive types.",
+      "route": "/fundamental-js/variables"
+    },
+    {
+      "name": "Functions",
+      "status": "Completed",
+      "progress": 100,
+      "details": "Understand how functions work, arguments, return values.",
+      "route": "/fundamental-js/functions"
+    },
+    {
+      "name": "Loops & Conditions",
+      "status": "In Progress",
+      "progress": 60,
+      "details": "Master for, while loops and conditional statements.",
+      "route": "/fundamental-js/loops"
+    },
+    {
+      "name": "Objects & Arrays",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Learn object literals, arrays and array methods.",
+      "route": "/fundamental-js/objects-arrays"
+    },
+    {
+      "name": "Execution Context",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Understand how JavaScript creates execution contexts for code execution.",
+      "route": "/fundamental-js/execution-context"
+    },
+    {
+      "name": "Call Stack",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Learn how the call stack works and handles function execution order.",
+      "route": "/fundamental-js/call-stack"
+    },
+    {
+      "name": "Event Loop",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Understand asynchronous execution using the event loop.",
+      "route": "/fundamental-js/event-loop"
+    },
+    {
+      "name": "Microtasks vs Macrotasks",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Learn the difference between microtasks and macrotasks in JS.",
+      "route": "/fundamental-js/microtasks-macrotasks"
+    },
+    {
+      "name": "Closures (real examples)",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Understand closures and practical use cases in JavaScript.",
+      "route": "/fundamental-js/closures"
+    },
+    {
+      "name": "Hoisting",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Learn how variable and function hoisting works in JS.",
+      "route": "/fundamental-js/hoisting"
+    },
+    {
+      "name": "`this` Binding",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Understand how `this` works in different contexts.",
+      "route": "/fundamental-js/this-binding"
+    },
+    {
+      "name": "Prototypes & Inheritance",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Learn about prototypes, prototype chain, and inheritance in JS.",
+      "route": "/fundamental-js/prototypes"
+    },
+    {
+      "name": "Shallow vs Deep Copy",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Understand the difference between shallow and deep copying objects.",
+      "route": "/fundamental-js/shallow-deep-copy"
+    },
+    {
+      "name": "Debounce vs Throttle",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Learn how to control function execution frequency with debounce and throttle.",
+      "route": "/fundamental-js/debounce-throttle"
+    },
+    {
+      "name": "Promise Chaining",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Master chaining promises for sequential asynchronous tasks.",
+      "route": "/fundamental-js/promise-chaining"
+    },
+    {
+      "name": "`async/await` Internals",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Understand how async/await works under the hood in JavaScript.",
+      "route": "/fundamental-js/async-await"
+    },
+    {
+      "name": "Memory Leaks",
+      "status": "Pending",
+      "progress": 0,
+      "details": "Learn common memory leaks in JS and how to avoid them.",
+      "route": "/fundamental-js/memory-leaks"
+    }
+  ]
+}
