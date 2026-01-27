@@ -1,0 +1,86 @@
+{
+    "errorMsg": null,
+    "successMsg": "Details fetched successfully ",
+    "data": [
+        {
+            "authorityId": 2,
+            "authorityName": "Test10",
+            "schemeWiseData": [
+                {
+                    "cardDesc": "AAY",
+                    "newRcCount": 1,
+                    "newRcMemberCount": 1,
+                    "modifiedRcCount": 0,
+                    "modifiedRcMemberCount": 0,
+                    "deletedRcCount": 0,
+                    "deletedRcMemberCount": 0,
+                    "addedMemberCount": 0,
+                    "deletedMemberCount": 0
+                },
+                {
+                    "cardDesc": "APL",
+                    "newRcCount": 1,
+                    "newRcMemberCount": 3,
+                    "modifiedRcCount": 0,
+                    "modifiedRcMemberCount": 0,
+                    "deletedRcCount": 0,
+                    "deletedRcMemberCount": 0,
+                    "addedMemberCount": 0,
+                    "deletedMemberCount": 0
+                },
+                {
+                    "cardDesc": "BPL",
+                    "newRcCount": 1,
+                    "newRcMemberCount": 2,
+                    "modifiedRcCount": 0,
+                    "modifiedRcMemberCount": 0,
+                    "deletedRcCount": 0,
+                    "deletedRcMemberCount": 0,
+                    "addedMemberCount": 0,
+                    "deletedMemberCount": 0
+                }
+            ]
+        },
+        {
+            "authorityId": 3,
+            "authorityName": "Test6",
+            "schemeWiseData": [
+                {
+                    "cardDesc": "AAY",
+                    "newRcCount": 16,
+                    "newRcMemberCount": 51,
+                    "modifiedRcCount": 2,
+                    "modifiedRcMemberCount": 18,
+                    "deletedRcCount": 1,
+                    "deletedRcMemberCount": 3,
+                    "addedMemberCount": 2,
+                    "deletedMemberCount": 0
+                },
+                {
+                    "cardDesc": "AAY old",
+                    "newRcCount": 3,
+                    "newRcMemberCount": 12,
+                    "modifiedRcCount": 0,
+                    "modifiedRcMemberCount": 0,
+                    "deletedRcCount": 0,
+                    "deletedRcMemberCount": 0,
+                    "addedMemberCount": 0,
+                    "deletedMemberCount": 0
+                },
+                {
+                    "cardDesc": "ABPL",
+                    "newRcCount": 5,
+                    "newRcMemberCount": 14,
+                    "modifiedRcCount": 1,
+                    "modifiedRcMemberCount": 8,
+                    "deletedRcCount": 0,
+                    "deletedRcMemberCount": 0,
+                    "addedMemberCount": 1,
+                    "deletedMemberCount": 0
+                }
+               
+            ]
+        }
+    ],
+    "error": false
+}

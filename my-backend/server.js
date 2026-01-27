@@ -10,7 +10,9 @@ connectDB();
 const app = express();
 
 const allowedOrigins = [
-  "https://fuzzy-barnacle-594555rw9q42v6gx-5008.app.github.dev/"
+  "https://fuzzy-barnacle-594555rw9q42v6gx-5008.app.github.dev/",
+  "https://ubiquitous-doodle-p6g999wx6w9f5xv-5008.app.github.dev/",
+  "https://ubiquitous-doodle-p6g999wx6w9f5xv-5173.app.github.dev/"
 //   'http://localhost:3000', // for local dev
 ];
 

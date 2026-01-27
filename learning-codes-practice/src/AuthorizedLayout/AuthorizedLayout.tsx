@@ -26,13 +26,13 @@ const AuthorizedLayout = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    const isLoggedIn = AuthService.isLoggedIn();
-    if (!isLoggedIn) {
-      navigate("/");
-      dispatch(ShowSignInModal());
-    }
-  }, []);
+  // useEffect(() => {
+  //   const isLoggedIn = AuthService.isLoggedIn();
+  //   if (!isLoggedIn) {
+  //     navigate("/");
+  //     dispatch(ShowSignInModal());
+  //   }
+  // }, []);
   
 
   return (
