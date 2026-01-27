@@ -20,6 +20,7 @@ import MainCourseList from './Pages/Teacher-Tutor/MainClourseList';
 import SubjectList from './Pages/Subject/SubjectList';
 // import SchemeTable from './JavaScript/Test/MultiLevelHeaderTable';
 import { LearningDashboard } from './CIWM/LearningDashboard';
+import { FundamentalJSContent } from './CIWM/JavaScript-Fundamental';
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-           {/* <Route path="/sch" element={<SchemeTable />} /> */}
+          {/* <Route path="/sch" element={<SchemeTable />} /> */}
           <Route path="/dashboard" element={<AuthorizedLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="course" element={<CourseList />} />
@@ -44,7 +45,7 @@ function App() {
             <Route path='manage-course/add-lesson' element={<AddLessonModal />} />
             <Route path='manage-course/content' element={<ManageContent />} />
             <Route path="manage-tutor/add/teacher-tutor" element={<AddTutorOrTeacher />} />
-            
+
             <Route path='profile' element={<ProfileContainer />} />
           </Route>
           <Route path="/tutor-dashboard" element={<AuthorizedLayout />}>
@@ -52,11 +53,13 @@ function App() {
             <Route path='course-wizard' element={<CourseWizard />} />
             <Route path='courses' element={<MainCourseList />} />
             <Route path='profile' element={<ProfileContainer />} />
-            
+
           </Route>
           <Route path="/learning-dashboard" element={<AuthorizedLayout />}>
             <Route index element={<LearningDashboard />} />
-            <Route path='fundamental-js' element={<CourseWizard />} />
+            <Route path='fundamental-js'>
+              <Route index element={<FundamentalJSContent />} />
+            </Route>
             <Route path='fundamental-react-js' element={<MainCourseList />} />
             <Route path='profile' element={<ProfileContainer />} />
           </Route>
