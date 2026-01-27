@@ -10,14 +10,27 @@ connectDB();
 const app = express();
 
 const allowedOrigins = [
-  "https://fuzzy-barnacle-594555rw9q42v6gx-5008.app.github.dev/",
-  "https://ubiquitous-doodle-p6g999wx6w9f5xv-5008.app.github.dev/",
-  "https://ubiquitous-doodle-p6g999wx6w9f5xv-5173.app.github.dev/"
+  "https://fuzzy-barnacle-594555rw9q42v6gx-5008.app.github.dev",
+  "https://ubiquitous-doodle-p6g999wx6w9f5xv-5008.app.github.dev",
+  "https://ubiquitous-doodle-p6g999wx6w9f5xv-5173.app.github.dev",
 //   'http://localhost:3000', // for local dev
 ];
 
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true,
+// };
+
 const corsOptions = {
   origin: function (origin, callback) {
+    console.log("Request origin:", origin);
+
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -29,13 +42,26 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use((req, res, next) => {
-  if (req.method === 'OPTIONS') {
-    res.sendStatus(204);
-  } else {
-    next();
-  }
-});
+// app.use((req, res, next) => {
+//   if (req.method === 'OPTIONS') {
+//     res.sendStatus(204);
+//   } else {
+//     next();
+//   }
+// });
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || origin.endsWith(".app.github.dev")) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
+
+app.use(express.json());
+
 
 app.use(express.json());
 
