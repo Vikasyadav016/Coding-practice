@@ -60,7 +60,7 @@ function App() {
             <Route path='fundamental-js'>
               <Route index element={<FundamentalJSContent />} />
               
-               <Route path='microtasks-macrotasks' element={<MicrotasksvsMacrotasks />} />
+               <Route path='microtasks-vs-macrotasks' element={<MicrotasksvsMacrotasks />} />
             </Route>
             <Route path='fundamental-react-js'>
               <Route index element={<FundamentalJSContent />} />

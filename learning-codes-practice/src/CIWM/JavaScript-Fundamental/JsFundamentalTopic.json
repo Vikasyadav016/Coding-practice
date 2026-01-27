@@ -54,7 +54,7 @@
       "status": "Pending",
       "progress": 0,
       "details": "Learn the difference between microtasks and macrotasks in JS.",
-      "route": "/learning-dashboard/fundamental-js/microtasks-macrotasks"
+      "route": "/learning-dashboard/fundamental-js/microtasks-vs-macrotasks"
     },
     {
       "name": "Closures (real examples)",
