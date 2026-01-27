@@ -1,4 +1,4 @@
-import { AddIcon, AddTeacherIcon, AdminPanelIcon, CourseIcon, DashboardIconNew, InstituteIcon, ManageSubjectsIconB, ProfileIcon, SettingsIcon, UpdateIcon, UsersIcon } from "../SvgIcons/SVGIcons";
+import { AddIcon, AddTeacherIcon, AdminPanelIcon, CourseIcon, DashboardIconNew, InstituteIcon, JavascriptFundamentalIcon, ManageSubjectsIconB, ProfileIcon, ReactFundamentalIcon, SettingsIcon, UpdateIcon, UsersIcon } from "../SvgIcons/SVGIcons";
 
 // STUDENT MENU (ROLE 01)
 export const Student_Working = [
@@ -74,3 +74,10 @@ export const Default_Working = [
   { path: "/dashboard", label: "Dashboard", icon: DashboardIconNew },
   { path: "/dashboard/profile", label: "Settings", icon: SettingsIcon },
 ];
+
+export const Learning_Coding = [
+  { path: "/learning-dashboard", label: "Dashboard", icon: DashboardIconNew },
+  { path: "/learning-dashboard/fundamental-js", label: "Fundamental Javascript", icon: JavascriptFundamentalIcon },
+  { path: "/learning-dashboard/fundamental-react-js", label: "Fundamental React Js", icon: ReactFundamentalIcon },
+  { path: "/learning-dashboard/profile", label: "Settings", icon: SettingsIcon },
+]

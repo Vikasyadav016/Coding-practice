@@ -37,7 +37,7 @@ const AppUserSchema = new Schema(
         _id: { type: Schema.Types.ObjectId, auto: true },
         userType: {
             type: String,
-            enum: ["01", "02", "03", "04", "05"],
+            enum: ["01", "02", "03", "04", "05","06","07"],
             required: true,
             default: "01",
         },

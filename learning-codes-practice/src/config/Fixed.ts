@@ -5,4 +5,5 @@ export const roleDashboardUrl: Record<string, string> = {
   "04": "/admin-dashboard",  // Super admin could use admin dashboard
   "05": "/admin-dashboard",
   "06": "/dashboard",
+  "07": "/learning-dashboard"
 };

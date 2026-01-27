@@ -440,6 +440,35 @@ export const DeleteIcon = () => (
   </svg>
 );
 
+export const JavascriptFundamentalIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M9 4c-2 0-3 1-3 3v2c0 1-1 2-2 2 1 0 2 1 2 2v2c0 2 1 3 3 3"
+      stroke="currentColor"
+      strokeWidth="2"
+      fill="none"
+    />
+    <path
+      d="M15 4c2 0 3 1 3 3v2c0 1 1 2 2 2-1 0-2 1-2 2v2c0 2-1 3-3 3"
+      stroke="currentColor"
+      strokeWidth="2"
+      fill="none"
+    />
+  </svg>
+);
+export const ReactFundamentalIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <rect x="3" y="3" width="7" height="7" rx="1" fill="currentColor" />
+    <rect x="14" y="3" width="7" height="7" rx="1" fill="currentColor" />
+    <rect x="8.5" y="14" width="7" height="7" rx="1" fill="currentColor" />
+    <path
+      d="M7 10v4m10-4v4m-5 0v-2"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    />
+  </svg>
+);
+
 
 
 

@@ -1,4 +1,4 @@
-import { Admin_Working, Default_Working, Institute_Working, Instructor_Tutor_Working, Student_Working, Super_Admin_Working } from "../SidebarMenu/SidebarMenuAccordingRole";
+import { Admin_Working, Default_Working, Institute_Working, Instructor_Tutor_Working, Learning_Coding, Student_Working, Super_Admin_Working } from "../SidebarMenu/SidebarMenuAccordingRole";
 
 export const roleType: any = {
     "01": "Student",
@@ -6,7 +6,8 @@ export const roleType: any = {
     "03":"Tutor_Teacher",
     "04":"Super_Admin",
     "05":"Admin",
-    "06":"Default"
+    "06":"Default",
+    "07": "Learning_Coding"
 }
 
 export const userType = [
@@ -15,7 +16,8 @@ export const userType = [
     'TUTOR-TEACHER',
     'SUPER-ADMIN',
     'ADMIN',
-    'DEFAULT'
+    'DEFAULT',
+    "Learning_Coding"
 ] 
 
 export const menuByRole :any= {
@@ -25,4 +27,5 @@ export const menuByRole :any= {
   "04": Super_Admin_Working,
   "05": Admin_Working,
   "06": Default_Working,
+  "07": Learning_Coding
 };

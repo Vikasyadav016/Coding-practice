@@ -19,6 +19,7 @@ import ProfileContainer from './Pages/UserProfile/ProfileContainer';
 import MainCourseList from './Pages/Teacher-Tutor/MainClourseList';
 import SubjectList from './Pages/Subject/SubjectList';
 import SchemeTable from './JavaScript/Test/MultiLevelHeaderTable';
+import { LearningDashboard } from './CIWM/LearningDashboard';
 
 function App() {
 
@@ -52,6 +53,12 @@ function App() {
             <Route path='courses' element={<MainCourseList />} />
             <Route path='profile' element={<ProfileContainer />} />
             
+          </Route>
+          <Route path="/learning-dashboard" element={<AuthorizedLayout />}>
+            <Route index element={<LearningDashboard />} />
+            <Route path='fundamental-js' element={<CourseWizard />} />
+            <Route path='fundamental-react-js' element={<MainCourseList />} />
+            <Route path='profile' element={<ProfileContainer />} />
           </Route>
         </Routes>
       </Router>
