@@ -22,6 +22,7 @@ import SubjectList from './Pages/Subject/SubjectList';
 import { LearningDashboard } from './CIWM/LearningDashboard';
 import { FundamentalJSContent } from './CIWM/JavaScript-Fundamental';
 import MicrotasksvsMacrotasks from './CIWM/JavaScript-Fundamental/Microtasks-vs-Macrotasks';
+import FindAlternateElement from './CIWM/JavaScript-Fundamental/Array-List/FindAlternateElement';
 function App() {
 
 
@@ -61,6 +62,8 @@ function App() {
               <Route index element={<FundamentalJSContent />} />
               
                <Route path='microtasks-vs-macrotasks' element={<MicrotasksvsMacrotasks />} />
+               <Route path='alternate-element-of-array' element={<FindAlternateElement />} />
+               {/* /learning-dashboard/fundamental-js/alternate-element-of-array */}
             </Route>
             <Route path='fundamental-react-js'>
               <Route index element={<FundamentalJSContent />} />

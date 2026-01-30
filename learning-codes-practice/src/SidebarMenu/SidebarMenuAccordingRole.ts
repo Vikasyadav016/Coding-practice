@@ -77,7 +77,16 @@ export const Default_Working = [
 
 export const Learning_Coding = [
   { path: "/learning-dashboard", label: "Dashboard", icon: DashboardIconNew },
-  { path: "/learning-dashboard/fundamental-js", label: "Fundamental Javascript", icon: JavascriptFundamentalIcon },
+  // { path: "/learning-dashboard/fundamental-js", label: "Fundamental Javascript", icon: JavascriptFundamentalIcon },
+  // FindAlternateElement
+  {
+    label: "Fundamental Javascript",
+    icon: JavascriptFundamentalIcon,
+    children: [
+      { path: "/learning-dashboard/fundamental-js/alternate-element-of-array", label: "Array alaternate element", icon: AddIcon },
+      { path: "/institute-dashboard/manage-course/edit", label: "Update ", icon: UpdateIcon },
+    ]
+  },
   { path: "/learning-dashboard/fundamental-react-js", label: "Fundamental React Js", icon: ReactFundamentalIcon },
   { path: "/learning-dashboard/profile", label: "Settings", icon: SettingsIcon },
 ]
