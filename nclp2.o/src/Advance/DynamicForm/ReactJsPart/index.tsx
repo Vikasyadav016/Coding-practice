@@ -2,7 +2,7 @@ import useDynamicForm from "./useDynamicForm";
 import './index.css'
 
 const DynamicForm = () => {
-    const { dynamicFormField, formField, handleInputChange, handleSubmit }: any = useDynamicForm();
+    const { dynamicFormField, formField, errors, handleInputChange, handleSubmit }: any = useDynamicForm();
 
     return (
         <div className="dynamicform">
@@ -11,11 +11,18 @@ const DynamicForm = () => {
                 {dynamicFormField.map((field: any, index: number) => (
                     <div className="fieldlabelcard" key={index}>
                         <div className="label">
-                            {field.label}
+                            {field.label}{field.required && <span className="requiredField">*</span>}
                         </div>
                         <div className="input">
                             <input type={field.type} value={formField[field.value]} name={field.name} onChange={handleInputChange} />
                         </div>
+                        {
+                            errors[field.name] && (
+                                <div className="validationErrorMsg">
+                                    {errors[field.name]}
+                                </div>
+                            )
+                        }
                     </div>
                 ))}
                 <div className="buttonSection">

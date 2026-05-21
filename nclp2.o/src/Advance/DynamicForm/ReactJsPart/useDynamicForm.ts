@@ -56,22 +56,6 @@ const dynamicFormField = [
         required: true
     },
     {
-        label: 'Password',
-        name: 'password',
-        value: 'password',
-        type: 'password',
-        disabled: false,
-        required: true
-    },
-    {
-        label: 'Confirm Password',
-        name: 'confirmPassword',
-        value: 'confirmPassword',
-        type: 'password',
-        disabled: false,
-        required: true
-    },
-    {
         label: 'Date of Birth',
         name: 'dob',
         value: 'dob',
@@ -94,7 +78,23 @@ const dynamicFormField = [
         type: 'text',
         disabled: false,
         required: false
-    }
+    },
+    {
+        label: 'Password',
+        name: 'password',
+        value: 'password',
+        type: 'password',
+        disabled: false,
+        required: true
+    },
+    {
+        label: 'Confirm Password',
+        name: 'confirmPassword',
+        value: 'confirmPassword',
+        type: 'password',
+        disabled: false,
+        required: true
+    },
 ];
 
 const useDynamicForm = () => {
@@ -112,6 +112,8 @@ const useDynamicForm = () => {
         firstName: ''
     })
 
+    const [errors, setErrors] = useState<any>({});
+
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
         setFormField((preiousValue) => ({
@@ -121,15 +123,20 @@ const useDynamicForm = () => {
 
     }
 
-    const handleSubmit = () => {
-        if (formFieldValidation()) {
-            alert('Validation Passed')
-        } else {
-            alert('Validation failed')
-        }
+  const handleSubmit = () => {
+    debugger
+    const validationErrors = formFieldValidation(dynamicFormField,formField);
+
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+        return;
     }
 
-    return { dynamicFormField, formField, setFormField, handleInputChange, handleSubmit }
+    console.log("submitted");
+};
+
+    return { dynamicFormField,errors, formField, setFormField, handleInputChange, handleSubmit }
 }
 
 export default useDynamicForm;

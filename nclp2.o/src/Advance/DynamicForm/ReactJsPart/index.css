@@ -56,6 +56,10 @@
     color: #444;
     text-align: left;
 }
+.requiredField {
+    color: red;
+    padding: 2px 4px;
+}
 
 .input input {
     width: 100%;
@@ -129,5 +133,34 @@
     .buttonSection {
         grid-column: span 1;
         flex-direction: column;
+    }
+}
+
+.validationErrorMsg {
+    margin-top: 6px;
+    padding: 1px 4px;
+
+    background-color: #ffe5e5;
+    color: #d90429;
+
+    border-bottom: 3px solid #d90429;
+    border-radius: 5px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Optional smooth appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
