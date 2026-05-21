@@ -1,5 +1,18 @@
 import { useState } from "react"
 
+export interface FormFieldType {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    username: string;
+    password: string;
+    confirmPassword: string;
+    dob: string
+    gender: string;
+    address: string
+}
+
 const dynamicFormField = [
     {
         label: 'First Name',
@@ -84,7 +97,7 @@ const dynamicFormField = [
 ];
 
 const useDynamicForm = () => {
-    const [formField, setFormField] = useState({
+    const [formField, setFormField] = useState<FormFieldType>({
         address: '',
         gender: '',
         dob: '',
