@@ -1,3 +1,133 @@
 .dynamicform {
     background-color: antiquewhite;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dynamicform h1 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.formcontainer {
+    background-color: azure;
+    width: 100%;
+    max-width: 1000px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+    /* IMPORTANT */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Card */
+.fieldlabelcard {
+    background-color: white;
+    padding: 18px 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.fieldlabelcard:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #444;
+    text-align: left;
+}
+
+.input input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+}
+
+/* Buttons full width row */
+.buttonSection {
+    grid-column: span 2;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.previewbutton,
+.submitbutton {
+    flex: 1;
+}
+
+.previewbtn,
+.submitbtn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.previewbtn {
+    background-color: #ffb703;
+    color: white;
+}
+
+.previewbtn:hover {
+    background-color: #e09b00;
+    transform: translateY(-3px);
+}
+
+.submitbtn {
+    background-color: #219ebc;
+    color: white;
+}
+
+.submitbtn:hover {
+    background-color: #126782;
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .formcontainer {
+        grid-template-columns: 1fr;
+    }
+
+    .buttonSection {
+        grid-column: span 1;
+        flex-direction: column;
+    }
 }

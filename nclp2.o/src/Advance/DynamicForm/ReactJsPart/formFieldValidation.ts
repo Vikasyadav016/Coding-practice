@@ -1,12 +1,14 @@
 import useDynamicForm from "./useDynamicForm";
 
 const formFieldValidation = () => {
-    const {dynamicFormField,formField} = useDynamicForm()
+  const { dynamicFormField, formField }: any = useDynamicForm();
 
-    if(dynamicFormField && formField){
-
+  return dynamicFormField.every((field: any) => {
+    if (field.required) {
+      return formField[field.name]?.trim() !== '';
     }
-
-}
+    return true;
+  });
+};
 
 export default formFieldValidation;

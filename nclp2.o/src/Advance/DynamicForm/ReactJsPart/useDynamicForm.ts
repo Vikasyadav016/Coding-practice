@@ -1,4 +1,5 @@
 import { useState } from "react"
+import formFieldValidation from "./formFieldValidation";
 
 export interface FormFieldType {
     firstName: string;
@@ -97,6 +98,7 @@ const dynamicFormField = [
 ];
 
 const useDynamicForm = () => {
+    
     const [formField, setFormField] = useState<FormFieldType>({
         address: '',
         gender: '',
@@ -120,8 +122,13 @@ const useDynamicForm = () => {
     }
 
     const handleSubmit = () => {
-
+        if (formFieldValidation()) {
+            alert('Validation Passed')
+        } else {
+            alert('Validation failed')
+        }
     }
+
     return { dynamicFormField, formField, setFormField, handleInputChange, handleSubmit }
 }
 
