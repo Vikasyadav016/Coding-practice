@@ -1,5 +1,6 @@
 import './App.css'
 import DynamicForm from './Advance/DynamicForm/ReactJsPart'
+import AdvanceAccordian from './Advance/Accordian/ReactJs'
 
 function App() {
   
@@ -8,11 +9,8 @@ function App() {
     <>
       <section id="center">
         <DynamicForm />
+        <AdvanceAccordian />
       </section>
-
-      <div className="ticks"></div>
-      <div className="ticks"></div>
-      <section id="spacer"></section>
     </>
   )
 }
