@@ -1,0 +1,96 @@
+/* Main Container */
+.todomaincontainer {
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px;
+  background: #f4f7fb;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Title */
+.h1title {
+  text-align: center;
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* Header Section */
+.todosectionoptionheader {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* Card Wrapper */
+.todooptioncard {
+  display: flex;
+  gap: 50px;
+  width:900px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Button Wrapper */
+.todooptionbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Buttons */
+.optionbtn {
+  padding: 12px 24px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.optionbtn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #4338ca, #6d28d9);
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.3);
+}
+
+.optionbtn:active {
+  transform: scale(0.96);
+}
+
+/* Todo Details Section */
+.todoDetailssection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .h1title {
+    font-size: 24px;
+  }
+
+  .todoDetailssection {
+    grid-template-columns: 1fr;
+  }
+
+  .todooptioncard {
+    width: 100%;
+  }
+
+  .optionbtn {
+    width: 100%;
+  }
+}
