@@ -20,6 +20,7 @@ const useDynamicForm = () => {
     })
 
     const [errors, setErrors] = useState<any>({});
+    
 
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
@@ -31,14 +32,12 @@ const useDynamicForm = () => {
     }
 
   const handleSubmit = () => {
-    debugger
     const validationErrors = formFieldValidation(dynamicFormField,formField);
-
     setErrors(validationErrors);
-
     if (Object.keys(validationErrors).length > 0) {
         return;
     }
+    alert(`Details: ${JSON.stringify(formField)}`)
 };
 
     return { dynamicFormField,errors, formField, setFormField, handleInputChange, handleSubmit }

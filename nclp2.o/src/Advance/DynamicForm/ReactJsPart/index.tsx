@@ -14,7 +14,7 @@ const DynamicForm = () => {
                             {field.label}{field.required && <span className="requiredField">*</span>}
                         </div>
                         <div className="input">
-                            <input type={field.type} value={formField[field.value]} name={field.name} onChange={handleInputChange} />
+                            <input className="inputValue" type={field.type} value={formField[field.value]} name={field.name} onChange={handleInputChange} />
                         </div>
                         {
                             errors[field.name] && (
