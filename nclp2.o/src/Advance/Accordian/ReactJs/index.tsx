@@ -12,10 +12,10 @@ const AdvanceAccordian = () => {
     } = useAccordian();
 
     return (
-        <div>
-            <h1>
+        <div className="accordianMain">
+            <h2 className="h1">
                 This Components represent the advance accordian
-            </h1>
+            </h2>
             <div className="sidebarcontainer">
                 {sideMenuForAccordian.map((sidemenu) => (
                     <div
