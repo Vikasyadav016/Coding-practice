@@ -22,7 +22,6 @@ const Todo = () => {
             <div className='todoDetailssection'>
                 <AddUpdateTodo />
                 <ViewTodoDetails />
-
             </div>
         </div>
     )
