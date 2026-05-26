@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./index.css";
-import ViewTodoDetails from "../ViewTodo";
 
 type BookDetails = {
     bookTitle: string;
@@ -8,13 +7,16 @@ type BookDetails = {
     bookDescription: string;
 };
 
-const AddUpdateTodo = () => {
+interface AddUpdateTodoProps {
+    onAddBook: (book: BookDetails) => void;
+}
+
+const AddUpdateTodo = ({ onAddBook }: AddUpdateTodoProps) => {
     const [bookDetails, setBookDetails] = useState<BookDetails>({
         bookTitle: "",
         bookPrice: "",
         bookDescription: ""
     });
-    const [bookList, setBookList] = useState<BookDetails[]>([]);
 
     const handleInputChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -36,7 +38,7 @@ const AddUpdateTodo = () => {
             alert("Please fill all fields");
             return;
         }
-        setBookList((prev) => [...prev, bookDetails]);
+        onAddBook(bookDetails);
         setBookDetails({
             bookTitle: "",
             bookPrice: "",
@@ -101,7 +103,6 @@ const AddUpdateTodo = () => {
                     Save Book
                 </button>
             </div>
-            {bookList.length > 0 && <ViewTodoDetails bookList={bookList} />}
         </div>
     );
 };

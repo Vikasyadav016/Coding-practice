@@ -8,9 +8,15 @@ interface BookType {
 
 interface ViewTodoDetailsProps {
     bookList: BookType[];
+    handleDelete?: (index: number) => void;
 }
 
-const ViewTodoDetails = ({ bookList }: ViewTodoDetailsProps) => {
+const ViewTodoDetails = ({ bookList, handleDelete }: ViewTodoDetailsProps) => {
+
+    const handleEdit = (index: number) => {
+        alert(`Edit functionality coming soon for book at index ${index}`);
+    };
+
     return (
         <div className="maincontainer">
             {/* BOOK CARD LIST */}
@@ -27,6 +33,12 @@ const ViewTodoDetails = ({ bookList }: ViewTodoDetailsProps) => {
                         <p className="bookdescription">
                             {book.bookDescription}
                         </p>
+                        <button className="editbtn" onClick={() => handleEdit(index)} >
+                            Edit
+                        </button>
+                        <button className="deletebtn" onClick={() => handleDelete && handleDelete(index)} >
+                            Delete
+                        </button>
                     </div>
                 )) :
                     <div className="nodatafound">
