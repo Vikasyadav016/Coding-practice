@@ -1,18 +1,11 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import "./index.css";
+import TodoActions from '../../Redux/actions';
 
-type BookDetails = {
-    bookTitle: string;
-    bookPrice: string;
-    bookDescription: string;
-};
-
-interface AddUpdateTodoProps {
-    onAddBook: (book: BookDetails) => void;
-}
-
-const AddUpdateTodo = ({ onAddBook }: AddUpdateTodoProps) => {
-    const [bookDetails, setBookDetails] = useState<BookDetails>({
+const AddUpdateTodo = () => {
+    const dispatch = useDispatch();
+    const [bookDetails, setBookDetails] = useState<any>({
         bookTitle: "",
         bookPrice: "",
         bookDescription: ""
@@ -38,7 +31,7 @@ const AddUpdateTodo = ({ onAddBook }: AddUpdateTodoProps) => {
             alert("Please fill all fields");
             return;
         }
-        onAddBook(bookDetails);
+        dispatch(TodoActions.addBook(bookDetails));
         setBookDetails({
             bookTitle: "",
             bookPrice: "",

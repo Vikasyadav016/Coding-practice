@@ -1,17 +1,12 @@
 import "./index.css";
+import { useDispatch, useSelector } from "react-redux";
+import TodoActions from '../../Redux/actions';
 
-interface BookType {
-    bookTitle: string;
-    bookPrice: string;
-    bookDescription: string;
-}
+const ViewTodoDetails = () => {
+    const dispatch = useDispatch();
+    const bookList = useSelector((state: any) => state?.todos ?? [] as any[]);
 
-interface ViewTodoDetailsProps {
-    bookList: BookType[];
-    handleDelete?: (index: number) => void;
-}
-
-const ViewTodoDetails = ({ bookList, handleDelete }: ViewTodoDetailsProps) => {
+    console.log("Book List from Redux Store:", bookList);
 
     const handleEdit = (index: number) => {
         alert(`Edit functionality coming soon for book at index ${index}`);
@@ -36,7 +31,7 @@ const ViewTodoDetails = ({ bookList, handleDelete }: ViewTodoDetailsProps) => {
                         <button className="editbtn" onClick={() => handleEdit(index)} >
                             Edit
                         </button>
-                        <button className="deletebtn" onClick={() => handleDelete && handleDelete(index)} >
+                        <button className="deletebtn" onClick={() => dispatch(TodoActions.deleteBook(index))} >
                             Delete
                         </button>
                     </div>
